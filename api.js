@@ -63,6 +63,21 @@ app.get('/Flores', async (req, res) => {
     }
 });
 
+
+app.post('/Flores', (req, res) => {
+    const { id_genero, id_flor, nombre_flor, vbn, temperatura_corte } = req.body;
+    console.log('Datos recibidos para insertar:', {id_genero, id_flor, nombre_flor, vbn, temperatura_corte });
+    client.query('INSERT INTO Flores (id_genero, id_flor, nombre_flor, VBN, temperatura_corte) VALUES ($1, $2, $3, $4, $5)', [id_genero, id_flor, nombre_flor, vbn, temperatura_corte], (err, result) => {
+        if (err) {
+            console.error('Error ejecutando query', err.stack);
+            res.status(500).send('Error al insertar datos en la base de datos');
+        } else {
+            res.status(201).send('Flor añadida exitosamente');
+        }
+    });
+});
+
+
 app.get('/GenerosFlores', (req, res) => {
     client.query('SELECT * FROM Generos_Flores', (err, result) => {
         if (err) {

@@ -71,19 +71,20 @@ document.addEventListener("DOMContentLoaded", function() {
 */
 document.addEventListener("DOMContentLoaded", function() {
     const botonAnadir = document.querySelector('.BotonaAdirflor');
-    const botonRegistrar = document.getElementById('botonregistrar');
     const ventanaregistro = document.querySelector(".Ventanaregistro");
+    const form = document.getElementById('florform'); // Asegúrate de que el formulario tenga este ID
 
+    // Cargar y mostrar las flores existentes
     fetch('/Flores')
     .then(response => response.json())
     .then(data => {
         displayData(data);
-    }) .catch(error => {
+    })
+    .catch(error => {
         console.error('Error:', error);
     });
-    
 
-
+    // Cargar y poblar el combo box con los géneros de flores
     fetch('/GenerosFlores')
     .then(response => response.json())
     .then(data => {
@@ -92,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .catch(error => {
         console.error('Error:', error);
     });
-    
+
     function populateComboBox(generos) {
         const combobox = document.getElementById('genero-combobox1');
         generos.forEach(genero => {
@@ -103,31 +104,20 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-
-
-
-
     function displayData(flores) {
         flores.forEach((flor, index) => {
             switch (index) {
-                case 0: updateCuadroFlor('CuadroFlor1', flor, 'Vbnflor1', 'Generoflor1', 'Textoflor1');
-                        break;
-                case 1: updateCuadroFlor('CuadroFlor2', flor, 'Vbnflor2', 'Generoflor2', 'Textoflor2');
-                        break;
-                case 2: updateCuadroFlor('CuadroFlor3', flor, 'Vbnflor3', 'Generoflor3', 'Textoflor3');
-                        break;
-                case 3: updateCuadroFlor('CuadroFlor4', flor, 'Vbnflor4', 'Generoflor4', 'Textoflor4');
-                        break;
-                case 4: updateCuadroFlor('CuadroFlor5', flor, 'Vbnflor5', 'Generoflor5', 'Textoflor5');
-                        break;
-                case 5: updateCuadroFlor('CuadroFlor6', flor, 'Vbnflor6', 'Generoflor6', 'Textoflor6');
-                        break;
+                case 0: updateCuadroFlor('CuadroFlor1', flor, 'Vbnflor1', 'Generoflor1', 'Textoflor1'); break;
+                case 1: updateCuadroFlor('CuadroFlor2', flor, 'Vbnflor2', 'Generoflor2', 'Textoflor2'); break;
+                case 2: updateCuadroFlor('CuadroFlor3', flor, 'Vbnflor3', 'Generoflor3', 'Textoflor3'); break;
+                case 3: updateCuadroFlor('CuadroFlor4', flor, 'Vbnflor4', 'Generoflor4', 'Textoflor4'); break;
+                case 4: updateCuadroFlor('CuadroFlor5', flor, 'Vbnflor5', 'Generoflor5', 'Textoflor5'); break;
+                case 5: updateCuadroFlor('CuadroFlor6', flor, 'Vbnflor6', 'Generoflor6', 'Textoflor6'); break;
                 default: console.warn(`No hay un cuadro definido para el índice: ${index}`);
             }
         });
     }
-    
-    
+
     function updateCuadroFlor(cuadroSelector, flor, vbnSelector, generoSelector, textoSelector) {
         const cuadroFlor = document.querySelector(`.${cuadroSelector}`);
         const vbnFlor = cuadroFlor.querySelector(`.${vbnSelector}`);
@@ -139,56 +129,58 @@ document.addEventListener("DOMContentLoaded", function() {
         generoFlor.style.visibility = 'visible';
         textoFlor.style.visibility = 'visible';
 
-        vbnFlor.textContent = `VBN no.${flor.vbn}`;
+        vbnFlor.textContent = `VBN no. ${flor.vbn}`;
         generoFlor.textContent = flor.nombre_genero;
         textoFlor.textContent = flor.nombre_flor;
     }
 
-
-
-
-    botonAnadir.addEventListener('click', function(){
+    botonAnadir.addEventListener('click', function() {
         ventanaregistro.style.visibility = 'visible';
     });
 
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-
-    botonRegistrar.addEventListener('click', function(){
-        const genero = document.getElementById("genero-combobox1").value;
-        const idflor = document.getElementById("idflor").value;
-        const nombreflor = document.getElementById("nombreflor").value;
+        const id_genero = document.getElementById("genero-combobox1").value;
+        const id_flor = document.getElementById("idflor").value;
+        const nombre_flor = document.getElementById("nombreflor").value;
         const vbn = document.getElementById("vbn").value;
-        const temperatura = document.getElementById("temperatura").value;
+        const temperatura_corte = document.getElementById("temperatura").value;
+
+        console.log('Datos del formulario:', { id_genero, id_flor, nombre_flor, vbn, temperatura_corte });
 
         fetch('/Flores', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ id_pais, nombre_pais })
+            body: JSON.stringify({ id_genero, id_flor, nombre_flor, vbn, temperatura_corte })
         })
         .then(response => {
             if (response.ok) {
                 return response.text();
             } else {
-                throw new Error('Error al guardar el país');
+                return response.text().then(text => { throw new Error(text); });
             }
         })
         .then(message => {
             console.log(message);
-            alert('País añadido exitosamente');
-            form.reset(); // Limpiar el formulario
+            form.reset();
+
+            ventanaregistro.style.visibility = 'hidden';
+            fetch('/Flores')
+                .then(response => response.json())
+                .then(data => {
+                    displayData(data);
+                })
+                .catch(error => {
+                    console.error('Error al cargar flores:', error);
+                });
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('Error al guardar el país');
+            console.error('Error al guardar la flor:', error);
+            alert('Error al guardar la flor: ' + error.message);
         });
+        
     });
-
-
-
-    
-
 });
-
-
