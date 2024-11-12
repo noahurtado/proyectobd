@@ -1,5 +1,5 @@
 CREATE TABLE Paises(
-id_pais numeric(2) NOT NULL,
+id_pais numeric(2) primary key NOT NULL,
 nombre_pais VARCHAR(15) NOT NULL
 );
 
