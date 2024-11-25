@@ -1,247 +1,371 @@
-CREATE TABLE Paises(
-id_pais numeric(2) primary key NOT NULL,
-nombre_pais VARCHAR(15) NOT NULL
+-- CREACION DE LAS TABLAS CON SU SECUENCIA CORRESPONDIENTE -------------------------------------------------------------------------
+
+-- PAIS
+CREATE SEQUENCE id_pais_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE paises(
+    id_pais INTEGER DEFAULT nextval('id_pais_secuencia') PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
 );
 
-CREATE TABLE Clientes_Floristerias(
-id_cliente numeric(4) primary key NOT NULL,
-primer_nombre varchar(15) NOT NULL,
-primer_apelliddo varchar(15),
-documento_identidad numeric(8) unique NOT NULL,
-fecha_nacimiento date NOT NULL,
-segundo_nombre varchar(15)
+-- FLOR CORTE
+CREATE SEQUENCE id_flor_corte_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE flores_cortes(
+    id_flor_corte INTEGER DEFAULT nextval('id_flor_corte_secuencia') PRIMARY KEY,
+    nombre_comun VARCHAR(50) NOT NULL UNIQUE,
+    etimologia VARCHAR(300) NOT NULL,
+    genero_especie VARCHAR(100) NOT NULL,
+    colores VARCHAR(100) NOT NULL,
+    temperatura NUMERIC(3,2) NOT NULL
 );
 
-CREATE TABLE Significados(
-id_significado numeric (3) primary key NOT NULL,
-descripcion varchar(15) NOT NULL,
-tipo varchar(11) NOT NULL 
-
-constraint CHK_tipo_significado CHECK (tipo IN ('ocasion','sentimiento'))
+-- COLOR FLOR
+CREATE TABLE colores_flores(
+    cod_hex VARCHAR(15) PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    descripcion VARCHAR(300) NOT NULL
 );
 
-CREATE TABLE Colores_Flores(
-cod_hex numeric(6) primary key NOT NULL,
-nombre_color varchar(15) NOT NULL,
-descripcion varchar(30) NOT NULL
+-- SIGNIFICADO
+CREATE SEQUENCE id_significado_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE significados(
+    id_significado INTEGER DEFAULT nextval('id_significado_secuencia') PRIMARY KEY,
+    descripcion VARCHAR(300),
+    tipo VARCHAR(20) NOT NULL,
+	
+	CONSTRAINT CHK_tipo CHECK (tipo IN ('Ocasion', 'Sentimiento'))
 );
 
-CREATE TABLE FLORES_CORTES(
-id_corte numeric(5) primary key NOT NULL,
-nombre_comun varchar(10) NOT NULL, 
-etimologia varchar(15) NOT NULL, 
-genero_especie varchar(15) NOT NULL,
-colores varchar(20) NOT NULL, 
-temperatura numeric(3) NOT NULL
+-- CLIENTE FLORISTERIA
+CREATE SEQUENCE id_cliente_floristeria_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE clientes_floristerias(
+    id_cliente_floristeria INTEGER DEFAULT nextval('id_cliente_floristeria_secuencia') PRIMARY KEY,
+    primer_nombre VARCHAR(50) NOT NULL,
+    primer_apelliddo VARCHAR(50) NOT NULL,
+    documento_identidad VARCHAR(50) NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+	segundo_nombre VARCHAR(50)
 );
 
-CREATE TABLE Productores(
-id_productor numeric(3) primary key NOT NULL,
-nombre_productor VARCHAR(15) NOT NULL,
-sitio_web VARCHAR(20) NOT NULL,
-email VARCHAR(20) NOT NULL,
-id_pais numeric(2) NOT NULL,
-constraint FK_pais foreign key(id_pais) references Paises(id_pais)
+-- PRODUCTOR
+CREATE SEQUENCE id_productor_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE productores(
+    id_productor INTEGER DEFAULT nextval('id_productor_secuencia') PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
+    sitio_web VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    id_pais INTEGER NOT NULL,
+	
+    CONSTRAINT FK_pais FOREIGN KEY(id_pais) REFERENCES paises(id_pais)
 );
 
-CREATE TABLE Subastadoras(
-id_subastadora numeric(3) primary key NOT NULL,
-nombre_subastadora VARCHAR(15) NOT NULL,
-id_pais numeric(2) NOT NULL,
-constraint FK_pais foreign key(id_pais) references Paises(id_pais)
+-- SUBASTADORA
+CREATE SEQUENCE id_subastadora_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE subastadoras(
+    id_subastadora INTEGER DEFAULT nextval('id_subastadora_secuencia') PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
+    id_pais INTEGER NOT NULL,
+	
+    CONSTRAINT FK_pais FOREIGN KEY(id_pais) REFERENCES paises(id_pais)
 );
 
-CREATE TABLE Contratos(
-id_productor numeric(3) NOT NULL,
-id_subastadora numeric(3) NOT NULL,
-id_contrato numeric(4) NOT NULL,
-porcentaje_produccion_total numeric(2) NOT NULL,
-clasificacion varchar(2) NOT NULL,
-fecha_firma date NOT NULL,
-id_productor_ren numeric(3) NOT NULL, 
-id_subastadora_ren numeric(3) NOT NULL,
-id_renovacion numeric(4),
-
-
-constraint PK_Contratos primary key(id_productor, id_subastadora, id_contrato),
-constraint FK_productor foreign key(id_productor) references Productores(id_productor),
-constraint FK_subastadora foreign key(id_subastadora) references Subastadoras(id_subastadora),
-constraint CHK_clasificacion check(clasificacion IN ('CA','CB','CC','CG','KA')),
-constraint FK_Renovacion foreign key(id_productor_ren, id_subastadora_ren,id_renovacion) references Contratos(id_productor, id_subastadora,id_contrato),
-constraint UNIQUE_RENOVACION unique(id_productor_ren, id_subastadora_ren,id_renovacion)
-
+-- CONTRATO
+CREATE SEQUENCE id_contrato_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE contratos(
+    id_contrato INTEGER DEFAULT nextval('id_contrato_secuencia') NOT NULL UNIQUE,
+	id_productor INTEGER NOT NULL,
+    id_subastadora INTEGER NOT NULL,
+    porcentaje_produccion_total NUMERIC(5,2) NOT NULL,
+    fecha_firma DATE NOT NULL,
+    clasificacion VARCHAR(5) NOT NULL,
+	fecha_cierre_cancelacion DATE,
+    id_contrato_renovado INTEGER, -- Referencia al contrato renovado (opcional)
+	id_productor_renovado INTEGER, -- Referencia al contrato renovado (opcional)
+	id_subastadora_renovado INTEGER, -- Referencia al contrato renovado (opcional)
+	
+    CONSTRAINT PK_contrato PRIMARY KEY (id_contrato, id_productor, id_subastadora),
+    CONSTRAINT FK1_productor FOREIGN KEY (id_productor) REFERENCES productores (id_productor),
+    CONSTRAINT FK2_subastadora FOREIGN KEY (id_subastadora) REFERENCES subastadoras (id_subastadora),
+    CONSTRAINT FK3_contrato_renovado FOREIGN KEY (id_contrato_renovado,id_productor_renovado,id_subastadora_renovado) REFERENCES contratos(id_contrato, id_productor, id_subastadora),
+	CONSTRAINT U_contrato_renovado UNIQUE (id_contrato_renovado,id_productor_renovado,id_subastadora_renovado),
+	CONSTRAINT CHK_clasificacion CHECK (clasificacion IN ('CA', 'CB', 'CC', 'CG', 'KA'))
 );
 
-CREATE TABLE PAGO_MULTA(
-id_productor numeric(3) NOT NULL,
-id_subastadora numeric(3) NOT NULL,
-id_contrato numeric(4) NOT NULL,
-id_comision numeric(2) NOT NULL,
-monto numeric(3) NOT NULL,
-tipo varchar(9) NOT NULL, 
-fecha_pago date NOT NULL,
-constraint PK_Comision_Venta primary key(id_productor, id_subastadora, id_contrato, id_comision),
-constraint FK_CONTRATO foreign key(id_productor, id_subastadora, id_contrato) references Contratos(id_productor, id_subastadora, id_contrato)
+-- CATALOGO PRODUCTOR
+CREATE TABLE catalogos_productores(
+    cod_vbn VARCHAR(10) NOT NULL,
+	id_productor INTEGER NOT NULL,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
+	id_flor_corte INTEGER NOT NULL,
+    descripcion VARCHAR(300),
+	
+    CONSTRAINT PK_catalogo_productor PRIMARY KEY(cod_vbn, id_productor),
+    CONSTRAINT FK1_productor FOREIGN KEY(id_productor) REFERENCES productores(id_productor),
+    CONSTRAINT FK2_flor_corte FOREIGN KEY(id_flor_corte) REFERENCES flores_cortes(id_flor_corte)
 );
 
-CREATE TABLE Catalogos_Productores(
-id_productor numeric(3) NOT NULL,
-cod_VBN numeric(8) NOT NULL,
-nombre VARCHAR(15) NOT NULL,
-descripcion varchar(25),
-cantidad numeric(3) NOT NULL,
-longitud numeric(2),
-
-constraint PK_Catalago_productor primary key(id_productor, cod_VBN),
-constraint FK_productor foreign key(id_productor) references Productores(id_productor)
+-- PAGO
+CREATE SEQUENCE id_pago_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE pagos(
+    id_pago INTEGER DEFAULT nextval('id_pago_secuencia'),
+	id_contrato INTEGER NOT NULL,
+    id_productor INTEGER NOT NULL,
+    id_subastadora INTEGER NOT NULL,
+    monto NUMERIC(9,2) NOT NULL,
+    tipo VARCHAR(10) NOT NULL,
+    fecha_pago DATE NOT NULL,
+	
+    CONSTRAINT PK_pago PRIMARY KEY(id_pago, id_contrato, id_productor, id_subastadora),
+    CONSTRAINT FK_contrato FOREIGN KEY(id_contrato, id_productor, id_subastadora) REFERENCES contratos(id_contrato, id_productor, id_subastadora),
+	CONSTRAINT CHK_tipo_pago CHECK (tipo IN ('Membresia', 'Multa', 'Comision'))
 );
 
-
-CREATE TABLE DETALLES_CONTRATOS(
-id_productor numeric(3) NOT NULL,
-id_subastadora numeric(3) NOT NULL,
-id_contrato numeric(4) NOT NULL,
-cod_vbn numeric(8) NOT NULL,
-constraint PK_Catalogo primary key(id_productor,id_subastadora,id_contrato,cod_VBN),
-
-constraint FK_Contrato foreign key(id_productor,id_subastadora,id_contrato) references Contratos(id_productor,id_subastadora,id_contrato),
-constraint FK_Catalogo foreign key(id_productor,cod_VBN) references Catalogos_Productores(id_productor, cod_VBN)
+-- FLORISTERIA
+CREATE SEQUENCE id_floristeria_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE floristerias(
+    id_floristeria INTEGER DEFAULT nextval('id_floristeria_secuencia') PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    id_pais INTEGER NOT NULL,
+	
+    CONSTRAINT FK_pais FOREIGN KEY(id_pais) REFERENCES paises(id_pais)
 );
 
-CREATE TABLE Floristerias(
-id_pais numeric(3) NOT NULL,
-id_floristeria numeric(3) NOT NULL,
-nombre_comprador VARCHAR(15) NOT NULL,
-email VARCHAR(20) NOT NULL,
-constraint PK_floristeria primary key(id_floristeria),
-constraint FK_pais foreign key(id_pais) references Paises(id_pais)
+-- PERSONAL
+CREATE SEQUENCE id_personal_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE personales(
+    id_personal INTEGER DEFAULT nextval('id_personal_secuencia'),
+	id_floristeria INTEGER NOT NULL,
+    primer_nombre VARCHAR(50) NOT NULL,
+    primer_apelliddo VARCHAR(50) NOT NULL,
+    documento_identidad VARCHAR(50) NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+	segundo_nombre VARCHAR(50),
+    
+    CONSTRAINT PK_personal PRIMARY KEY(id_personal, id_floristeria),
+    CONSTRAINT FK_floristeria FOREIGN KEY(id_floristeria) REFERENCES floristerias(id_floristeria)
 );
 
-CREATE TABLE Personales(
-id_floristeria numeric(3) NOT NULL,
-id_personal numeric (5) NOT NULL,
-primer_nombre varchar(15) NOT NULL,
-primer_apellido varchar(15) NOT NULL,
-documento_identidad numeric(8) unique NOT NULL,
-fecha_nacimiento date NOT NULL,
-segundo_nombre varchar(15),
-constraint PK_Personales primary key(id_floristeria,id_personal),
-constraint FK_Comprador foreign key(id_floristeria) references Floristerias(id_floristeria)
+-- DETALLE CONTRATO
+
+CREATE TABLE detalles_contratos(
+	cod_vbn VARCHAR(10) NOT NULL,
+	id_productor INTEGER NOT NULL,
+    id_contrato INTEGER NOT NULL,
+    id_subastadora INTEGER NOT NULL,
+    cantidad INTEGER NOT NULL,
+    
+    CONSTRAINT PK_detalle_contrato PRIMARY KEY(cod_vbn, id_productor, id_contrato, id_subastadora),
+    CONSTRAINT FK1_catalogo FOREIGN KEY(cod_vbn, id_productor) REFERENCES catalogos_productores(cod_vbn, id_productor),
+    CONSTRAINT FK2_contrato FOREIGN KEY(id_contrato, id_productor, id_subastadora) REFERENCES contratos(id_contrato, id_productor, id_subastadora)
 );
 
-CREATE TABLE Afiliaciones(
-id_floristeria numeric(3) NOT NULL,
-id_subastadora numeric(3) NOT NULL,
-constraint PK_Afiliacion primary key(id_floristeria,id_subastadora),
-constraint FK_Comprador foreign key(id_floristeria) references Floristerias(id_floristeria),
-constraint FK_Subastadora foreign key(id_subastadora) references Subastadoras(id_subastadora)
+-- AFILIACION
+
+CREATE TABLE afiliaciones(
+    id_subastadora INTEGER NOT NULL,
+    id_floristeria INTEGER NOT NULL,
+	
+    CONSTRAINT PK_afiliacion PRIMARY KEY(id_subastadora, id_floristeria),
+    CONSTRAINT FK1_subastadora FOREIGN KEY(id_subastadora) REFERENCES subastadoras(id_subastadora),
+    CONSTRAINT FK2_floristeria FOREIGN KEY(id_floristeria) REFERENCES floristerias(id_floristeria)
 );
 
-CREATE TABLE Facturas_Compras(
-id_factura numeric(4) primary key NOT NULL, 
-fecha_emision date NOT NULL,
-montol_total numeric(4) NOT NULL,
-envio varchar(2) NOT NULL,
-id_floristeria numeric(3) NOT NULL,
-id_subastadora numeric(3) NOT NULL,
-
-constraint FK_Afiliacion foreign key(id_floristeria, id_subastadora) references Afiliaciones(id_floristeria, id_subastadora)
+-- FACTURA COMPRA
+CREATE SEQUENCE id_factura_compra_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE facturas_compras(
+    id_factura INTEGER DEFAULT nextval('id_factura_compra_secuencia') PRIMARY KEY,
+    fecha_emision DATE NOT NULL,
+    monto_total NUMERIC(9,2) NOT NULL,
+	id_subastadora INTEGER NOT NULL,
+    id_floristeria INTEGER NOT NULL,
+    envio NUMERIC(9,2),
+    
+    CONSTRAINT FK_afiliacion FOREIGN KEY(id_subastadora, id_floristeria) REFERENCES afiliaciones(id_subastadora, id_floristeria)
 );
 
-CREATE TABLE Lotes(
-id_productor numeric(3) NOT NULL,
-id_subastadora numeric(3) NOT NULL,
-id_contrato numeric(4) NOT NULL,
-cod_vbn numeric(8) NOT NULL,
-id_factura numeric(4) NOT NULL,
-id_lote numeric(4) NOT NULL, 
-cantidad numeric(4) NOT NULL, 
-precio_inicial date NOT NULL, 
-indice_calidad numeric(1) NOT NULL, 
-precio_final date NOT NULL, 
-
-
-constraint PK_Lotes primary key(id_productor, id_subastadora, id_contrato, cod_VBN, id_factura, id_lote),
-constraint FK_Detalle_Contrato foreign key(id_productor, id_subastadora, id_contrato, cod_VBN) references DETALLES_CONTRATOS(id_productor, id_subastadora, id_contrato, cod_VBN),
-constraint FK_FACTURA_Compra foreign key(id_factura) references Facturas_Compras(id_factura)
+-- LOTE
+CREATE SEQUENCE id_lote_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE lotes(
+    id_lote INTEGER DEFAULT nextval('id_lote_secuencia'),
+	-- Factura
+	id_factura_compra INTEGER NOT NULL,
+	-- Detalle contrato
+	-- /Catalogo
+	cod_vbn VARCHAR(10) NOT NULL,
+	id_productor INTEGER NOT NULL,
+	-- /Contrato
+    id_contrato INTEGER NOT NULL,
+    id_subastadora INTEGER NOT NULL,
+    cantidad INTEGER NOT NULL,
+    precio_inicial NUMERIC(9,2) NOT NULL,
+    indice_calidad NUMERIC(2,1) NOT NULL,
+    precio_final NUMERIC(9,2) NOT NULL,
+	
+    CONSTRAINT PK_lote PRIMARY KEY(id_lote, id_factura_compra, cod_vbn, id_productor,id_contrato, id_subastadora),
+    CONSTRAINT FK1_factura_compra FOREIGN KEY(id_factura_compra) REFERENCES facturas_compras(id_factura),
+    CONSTRAINT FK2_detalle_contrato FOREIGN KEY(cod_vbn, id_productor, id_contrato, id_subastadora) REFERENCES detalles_contratos(cod_vbn, id_productor, id_contrato, id_subastadora)
 );
 
-CREATE TABLE Enlaces(
-id_significado numeric(3) NOT NULL, 
-id_enlace numeric(3) NOT NULL,
-descripcion varchar(30) NOT NULL, 
-id_corte numeric(5), 
-cod_hex numeric(6),
- 
-constraint PK_enlace primary key(id_significado, id_enlace),
-constraint FK_Flor_Corte foreign key(id_corte) references FLORES_CORTES(id_corte),
-constraint FK_Significado foreign key(id_significado) references Significados(id_significado),
-constraint FK_Color foreign key(cod_hex) references COLORES_FLORES(cod_hex)
+-- ENLACE
+CREATE SEQUENCE id_enlace_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE enlaces(
+    id_enlace INTEGER DEFAULT nextval('id_enlace_secuencia'),
+	id_significado INTEGER NOT NULL,
+    descripcion VARCHAR(300),
+    cod_hex VARCHAR(15),
+	id_flor_corte INTEGER,
+    
+    CONSTRAINT PK_enlace PRIMARY KEY(id_enlace, id_significado),
+    CONSTRAINT FK1_color_flor FOREIGN KEY(cod_hex) REFERENCES colores_flores(cod_hex),
+    CONSTRAINT FK2_significado FOREIGN KEY(id_significado) REFERENCES significados(id_significado),
+	CONSTRAINT FK3_flor_corte FOREIGN KEY(id_flor_corte) REFERENCES flores_cortes(id_flor_corte)
 );
 
-CREATE TABLE CATALOGOS_FLORISTERIAS(
-id_floristeria numeric(3) NOT NULL,
-codigo numeric(4) NOT NULL, 
-nombre varchar(15) NOT NULL,
-descripcion varchar(30),
-id_corte numeric(5) NOT NULL,
-cod_hex numeric(6) NOT NULL,
-
-constraint PK_Cat_flor primary key(id_floristeria, codigo),
-constraint FK_Floristeria foreign key(id_floristeria) references Floristerias(id_floristeria),
-constraint FK_Flor_Corte foreign key(id_corte) references FLORES_CORTES(id_corte),
-constraint FK_Color foreign key(cod_hex) references COLORES_FLORES(cod_hex)
-
+-- FACTURA VENTA
+CREATE SEQUENCE id_factura_venta_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE facturas_ventas(
+    id_factura_venta INTEGER DEFAULT nextval('id_factura_venta_secuencia'),
+	id_floristeria INTEGER NOT NULL,
+    id_cliente_floristeria INTEGER NOT NULL,
+    fecha DATE NOT NULL,
+    total NUMERIC(9,2) NOT NULL,
+    
+    CONSTRAINT PK_factura_venta PRIMARY KEY(id_factura_venta, id_floristeria),
+    CONSTRAINT FK1_floristeria FOREIGN KEY(id_floristeria) REFERENCES floristerias(id_floristeria),
+    CONSTRAINT FK2_cliente_floristeria FOREIGN KEY(id_floristeria) REFERENCES clientes_floristerias(id_cliente_floristeria)
 );
 
-CREATE TABLE HIST_PRECIO_UNITARIO(
-id_floristeria numeric(3) NOT NULL,
-codigo numeric(4) NOT NULL, 
-fecha_i date NOT NULL, 
-fecha_f date,
-precio_unidad numeric(3) NOT NULL, 
-tamaño_tallo numeric(2),
-
-constraint PK_Hist_Precio primary key(id_floristeria, codigo, fecha_i),
-constraint FK_Catalogo_Flor foreign key(id_floristeria, codigo) references CATALOGOS_FLORISTERIAS(id_floristeria, codigo)
+-- CATALOGO FLORISTERIA
+CREATE TABLE catalogos_floristerias(
+    cod_vbn VARCHAR(10) NOT NULL,
+    id_floristeria INTEGER NOT NULL,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
+    cod_hex VARCHAR(15) NOT NULL,
+    id_flor_corte INTEGER NOT NULL,
+	descripcion VARCHAR(300),
+	
+    CONSTRAINT PK_catalogo_floristeria PRIMARY KEY(cod_vbn, id_floristeria),
+    CONSTRAINT FK1_floristeria FOREIGN KEY(id_floristeria) REFERENCES floristerias(id_floristeria),
+    CONSTRAINT FK2_color_flor FOREIGN KEY(cod_hex) REFERENCES colores_flores(cod_hex),
+    CONSTRAINT FK3_flor_corte FOREIGN KEY(id_flor_corte) REFERENCES flores_cortes(id_flor_corte)
 );
 
-
-CREATE TABLE DET_BOUQUET(
-id_floristeria numeric(3) NOT NULL,
-codigo numeric(4) NOT NULL, 
-id_bouquet numeric(4) NOT NULL, 
-cantidad numeric(2) NOT NULL, 
-descripcion varchar(30),
-tallo_tamaño numeric(2),
-
-constraint PK_Bouquet primary key(id_floristeria, codigo, id_bouquet),
-constraint FK_Catalogo_Flor foreign key(id_floristeria, codigo) references CATALOGOS_FLORISTERIAS(id_floristeria, codigo)
+-- HISTORICO PRECIO UNITARIO
+CREATE TABLE hist_precios_unitarios(
+    fecha_inicio DATE NOT NULL,
+	cod_vbn VARCHAR(15) NOT NULL,
+    id_floristeria INTEGER NOT NULL,
+    precio_unitario NUMERIC(9,2) NOT NULL,
+    fecha_fin DATE,
+    tamano_tallo NUMERIC(5,2),
+    
+    CONSTRAINT PK_hist_precio_unitario PRIMARY KEY(fecha_inicio, cod_vbn, id_floristeria),
+    CONSTRAINT FK_catalogo_floristeria FOREIGN KEY(cod_vbn, id_floristeria) REFERENCES catalogos_floristerias(cod_vbn, id_floristeria)
 );
 
-CREATE TABLE Facturas_Ventas(
-id_floristeria numeric(3) NOT NULL,
-numero numeric(4) NOT NULL, 
-fecha date NOT NULL, 
-total numeric(4) NOT NULL, 
-
-constraint PK_Factura_venta primary key(id_floristeria, numero),
-constraint FK_Floristeria foreign key(id_floristeria) references Floristerias(id_floristeria)
+-- DETALLE BOUQUET
+CREATE SEQUENCE id_detalle_bouquet_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE detalles_bouquets(
+    id_detalle_bouquet INTEGER DEFAULT nextval('id_detalle_bouquet_secuencia'),
+    cantidad INTEGER NOT NULL,
+    cod_vbn VARCHAR(15) NOT NULL,
+    id_floristeria INTEGER NOT NULL,
+    descripcion VARCHAR(300),
+    tamano_tallo NUMERIC(5,2),
+	
+    CONSTRAINT PK_detalle_bouquet PRIMARY KEY(id_detalle_bouquet, cod_vbn, id_floristeria),
+    CONSTRAINT FK_catalogo_floristeria FOREIGN KEY(cod_vbn, id_floristeria) REFERENCES catalogos_floristerias(cod_vbn, id_floristeria)
 );
 
-CREATE TABLE DET_FACT_VENTAS(
-id_floristeria numeric(3) NOT NULL,
-numero numeric(4) NOT NULL,
-id_det_fact_venta numeric(4) NOT NULL, 
-cantidad numeric(3) NOT NULL, 
-valor_cantidad numeric(2), 
-valor_precio numeric(2), 
-promedio numeric(2),
-codigo numeric(4),
-id_bouquet numeric(4),
-
-constraint PK_DET_Venta primary key(id_floristeria, numero, id_det_fact_venta),
-constraint FK_Fact_venta foreign key(id_floristeria, numero) references Facturas_ventas(id_floristeria, numero),
-constraint Fk_Cat_Flor foreign key(id_floristeria,codigo) references Catalogos_Floristerias(id_floristeria,codigo), 
-constraint FK_Bouquet foreign key(id_floristeria,codigo,id_bouquet) references Det_Bouquet(id_floristeria,codigo,id_bouquet)
+-- DETALLE FACTURA VENTA
+CREATE SEQUENCE detalle_factura_venta_secuencia
+	START WITH 1
+	INCREMENT BY 1;
+	
+CREATE TABLE detalles_facturas_ventas(
+    id_detalle_factura_venta INTEGER DEFAULT nextval('detalle_factura_venta_secuencia'),
+    cantidad INTEGER NOT NULL,
+	--Factura
+    id_factura_venta INTEGER NOT NULL,
+    id_floristeria INTEGER NOT NULL,
+	-- Det Bouquet y Catalogo Floristeria
+    id_detalle_bouquet INTEGER NOT NULL,
+    cod_vbn VARCHAR(15) NOT NULL,
+    valor_cantidad NUMERIC(9,2),
+    valor_precio NUMERIC(9,2),
+    promedio NUMERIC(9,2),
+	
+    CONSTRAINT PK_detalle_factura_venta PRIMARY KEY(id_detalle_factura_venta, id_factura_venta, id_floristeria),
+    CONSTRAINT FK1_factura_venta FOREIGN KEY(id_factura_venta, id_floristeria) REFERENCES facturas_ventas(id_factura_venta, id_floristeria),
+    CONSTRAINT FK2_detalle_bouquet FOREIGN KEY(id_detalle_bouquet, cod_vbn, id_floristeria) REFERENCES detalles_bouquets(id_detalle_bouquet, cod_vbn, id_floristeria),
+    CONSTRAINT FK3_catalogo_floristeria FOREIGN KEY(cod_vbn, id_floristeria) REFERENCES catalogos_floristerias(cod_vbn, id_floristeria)
 );
+
+-- TELEFONO
+CREATE TABLE telefonos(
+    prefijo INTEGER NOT NULL,
+    cod_area INTEGER NOT NULL,
+    numero INTEGER NOT NULL,
+    tipo VARCHAR(10) NOT NULL,
+	-- Floristeria
+    id_floristeria INTEGER NOT NULL,
+	-- Productor
+    id_productor INTEGER NOT NULL,
+	-- Personal
+    id_personal INTEGER NOT NULL,
+	id_floristeria_personal INTEGER NOT NULL,
+	-- Subastadora
+    id_subastadora INTEGER NOT NULL,
+    CONSTRAINT PK_telefono PRIMARY KEY(prefijo, cod_area, numero),
+    CONSTRAINT FK1_floristeria FOREIGN KEY(id_floristeria) REFERENCES floristerias(id_floristeria),
+    CONSTRAINT FK2_productor FOREIGN KEY(id_productor) REFERENCES productores(id_productor),
+    CONSTRAINT FK3_personal FOREIGN KEY(id_personal, id_floristeria_personal) REFERENCES personales(id_personal, id_floristeria),
+    CONSTRAINT FK4_subastador FOREIGN KEY(id_subastadora) REFERENCES subastadoras(id_subastadora),
+	CONSTRAINT CHK_tipo_telefono CHECK (tipo IN('Fijo, Movil'))
+);
+

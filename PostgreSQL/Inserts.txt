@@ -1,3 +1,5 @@
+//Inserts viejos
+
 INSERT INTO Generos_Flores (id_genero, nombre_genero, etimologia) VALUES (100, 'Turnera', 'etimologia');
 INSERT INTO Generos_Flores (id_genero, nombre_genero, etimologia) VALUES (101, 'Lilium', 'etimologia');
 INSERT INTO Generos_Flores (id_genero, nombre_genero, etimologia) VALUES (102, 'Helianthus', 'etimologia');
