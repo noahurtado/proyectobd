@@ -1,0 +1,686 @@
+.CatalogosProductores{
+    width: 1920px;
+    height: 919px;
+    position: relative;
+    background: #F4F5FA;
+}
+
+.FondoMenu{
+    width: 411px;
+    height: 919px;
+    left: -56px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+}
+
+.IconoPrograma{
+    width: 69.35px;
+    height: 69.35px;
+    left: 80px;
+    top: 48px;
+    position: absolute;
+}
+
+.IconoElipseFlor{
+    width: 69.35px;
+    height: 69.35px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 9999px;
+}
+
+.IconoProgramaFlor{
+    width: 50.33px;
+    height: 50.33px;
+    left: 11.19px;
+    top: 10.07px;
+    position: absolute;
+}
+
+.BotonProductor{
+    width: 283px;
+    height: 68px;
+    left: 80px;
+    top: 182px;
+    position: absolute;
+}
+
+.BotonProductor:hover .FondoBotonProductor{
+    background: #e9a2c3;
+}
+.BotonProductor:hover .Productores{
+    color: #faecf2;
+}
+
+.FondoBotonProductor{
+    width: 283px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F8BFDA;
+    border-radius: 15px;
+}
+
+.Productores{
+    width: 195px;
+    height: 21px;
+    left: 65px;
+    top: 19px;
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.IconoProductores{
+    width: 40px;
+    height: 34.04px;
+    left: 14px;
+    top: 16px;
+    position: absolute;
+}
+
+.BotonFloristeria{
+    width: 283px;
+    height: 68px;
+    left: 80px;
+    top: 270px;
+    position: absolute;
+}
+
+.FondoBotonFloristeria{
+    width: 283px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 15px;
+}
+
+.FondoBotonFloristeria:hover{
+    background: #fff4f9;
+}
+
+.Floristerias{
+    width: 195px;
+    height: 21px;
+    left: 65px;
+    top: 19px;
+    position: absolute;
+    color: #F8BFDA;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.IconoFloristerias{
+    width: 35px;
+    height: 35px;
+    left: 16px;
+    top: 16px;
+    position: absolute;
+}
+
+.NombreProductor{
+    width: 665px;
+    height: 95px;
+    left: 606px;
+    top: 22px;
+    position: absolute;
+    color: #45464E;
+    font-size: 48px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+.Cuadrocatalogo1{
+    width: 477.14px;
+    height: 326.07px; 
+    left: 606px;
+    top: 101px;
+    position: absolute;
+}
+
+.Fondocuadrocat1{
+    width: 477.14px;
+    height: 326.07px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 30px; 
+}
+
+.Catalogo1{
+    width: 432.93px;
+    height: 52.62px;
+    left: 44px;
+    top: 43px;
+    position: absolute;
+    color: #45464E;
+    font-size: 36px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+.Vbn1{
+    width: 291.96px;
+    height: 32.89px;
+    left: 44px;
+    top: 110px;
+    position: absolute;
+    color: #8B8D97; 
+    font-size: 24px; 
+    font-family: Poppins; 
+    font-weight: 500; 
+    word-wrap: break-word;
+}
+
+.Descripcion1{
+    width: 396.23px; 
+    height: 48.86px; 
+    left: 80.91px; 
+    top: 161.63px; 
+    position: absolute; 
+    color: #B0B3C1; 
+    font-size: 20px; 
+    font-family: Poppins; 
+    font-weight: 500; 
+    word-wrap: break-word;
+}
+
+.Botoncatalogo1{
+    width: 181.33px; 
+    height: 47.72px; 
+    left: 147.65px; 
+    top: 249.02px; 
+    position: absolute;
+}
+
+.Botoncatalogo1:hover .Fondobotoncat1{
+    background: #e9a2c3;
+}
+.Botoncatalogo1:hover .Vercatalogo1{
+    color: #faecf2;
+}
+
+.Fondobotoncat1 {
+    width: 181.33px;
+    height: 47.72px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F8BFDA;
+    border-radius: 15px;
+}
+
+.Vercatalogo1 {
+    width: 120.12px;
+    height: 22.55px;
+    left: 30.86px;
+    top: 9.40px;
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.Desc1 {
+    width: 34px;
+    height: 39px;
+    left: 37px;
+    top: 158px;
+    position: absolute;
+}
+
+.Cuadrocatalogo2 {
+    width: 477.14px;
+    height: 326.07px;
+    left: 1142px;
+    top: 101px;
+    position: absolute;
+}
+
+.Fondocuadrocat2 {
+    width: 477.14px;
+    height: 326.07px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+}
+
+.Catalogo2 {
+    width: 432.93px;
+    height: 52.62px;
+    left: 44px;
+    top: 43px;
+    position: absolute;
+    color: #45464E;
+    font-size: 36px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+.Vbn2 {
+    width: 291.96px;
+    height: 32.89px;
+    left: 44px;
+    top: 110px;
+    position: absolute;
+    color: #8B8D97;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.Descripcion2 {
+    width: 396.23px;
+    height: 48.86px;
+    left: 80.91px;
+    top: 161.63px;
+    position: absolute;
+    color: #B0B3C1;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.Botoncatalogo2 {
+    width: 181.33px;
+    height: 47.72px;
+    left: 147.65px;
+    top: 249.02px;
+    position: absolute;
+}
+
+.Botoncatalogo2:hover .Fondobotoncat2{
+    background: #e9a2c3;
+}
+.Botoncatalogo2:hover .Vercatalogo2{
+    color: #faecf2;
+}
+
+.Fondobotoncat2 {
+    width: 181.33px;
+    height: 47.72px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F8BFDA;
+    border-radius: 15px;
+}
+
+.Vercatalogo2 {
+    width: 120.12px;
+    height: 22.55px;
+    left: 30.86px;
+    top: 9.40px;
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.Desc2 {
+    width: 34px;
+    height: 39px;
+    left: 37px;
+    top: 158px;
+    position: absolute;
+}
+
+.Cuadrocatalogo3 {
+    width: 477.14px;
+    height: 326.07px;
+    left: 606px;
+    top: 472px;
+    position: absolute;
+}
+
+.Fondocuadrocat3 {
+    width: 477.14px;
+    height: 326.07px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+}
+
+.Catalogo3 {
+    width: 432.93px;
+    height: 52.62px;
+    left: 44px;
+    top: 43px;
+    position: absolute;
+    color: #45464E;
+    font-size: 36px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+.Vbn3 {
+    width: 291.96px;
+    height: 32.89px;
+    left: 44px;
+    top: 110px;
+    position: absolute;
+    color: #8B8D97;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.Descripcion3 {
+    width: 396.23px;
+    height: 48.86px;
+    left: 80.91px;
+    top: 161.63px;
+    position: absolute;
+    color: #B0B3C1;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.Botoncatalogo3 {
+    width: 181.33px;
+    height: 47.72px;
+    left: 147.65px;
+    top: 249.02px;
+    position: absolute;
+}
+
+.Botoncatalogo3:hover .Fondobotoncat3{
+    background: #e9a2c3;
+}
+.Botoncatalogo3:hover .Vercatalogo3{
+    color: #faecf2;
+}
+
+.Fondobotoncat3 {
+    width: 181.33px;
+    height: 47.72px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F8BFDA;
+    border-radius: 15px;
+}
+
+.Vercatalogo3 {
+    width: 120.12px;
+    height: 22.55px;
+    left: 30.86px;
+    top: 9.40px;
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.Desc3 {
+    width: 34px;
+    height: 39px;
+    left: 37px;
+    top: 158px;
+    position: absolute;
+}
+
+.Cuadrocatalogo4 {
+    width: 477.14px;
+    height: 326.07px;
+    left: 1142px;
+    top: 472px;
+    position: absolute;
+}
+
+.Fondocuadrocat4 {
+    width: 477.14px;
+    height: 326.07px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+}
+
+.Catalogo4 {
+    width: 432.93px;
+    height: 52.62px;
+    left: 44px;
+    top: 43px;
+    position: absolute;
+    color: #45464E;
+    font-size: 36px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+.Vbn4 {
+    width: 291.96px;
+    height: 32.89px;
+    left: 44px;
+    top: 110px;
+    position: absolute;
+    color: #8B8D97;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.Descripcion4 {
+    width: 396.23px;
+    height: 48.86px;
+    left: 80.91px;
+    top: 161.63px;
+    position: absolute;
+    color: #B0B3C1;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.Botoncatalogo4 {
+    width: 181.33px;
+    height: 47.72px;
+    left: 147.65px;
+    top: 249.02px;
+    position: absolute;
+}
+
+.Botoncatalogo4:hover .Fondobotoncat4{
+    background: #e9a2c3;
+}
+.Botoncatalogo4:hover .Vercatalogo4{
+    color: #faecf2;
+}
+
+.Fondobotoncat4 {
+    width: 181.33px;
+    height: 47.72px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F8BFDA;
+    border-radius: 15px;
+}
+
+.Vercatalogo4 {
+    width: 120.12px;
+    height: 22.55px;
+    left: 30.86px;
+    top: 9.40px;
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.Desc4 {
+    width: 34px;
+    height: 39px;
+    left: 37px;
+    top: 158px;
+    position: absolute;
+}
+
+.Botonanadircatalogo {
+    width: 295px;
+    height: 56.76px;
+    left: 1318px;
+    top: 22px;
+    position: absolute;
+}
+
+.Botonanadircatalogo:hover .Fondobotonanadir{
+    background: #e9a2c3;
+}
+.Botonanadircatalogo:hover .Anadircatalogo{
+    color: #faecf2;
+}
+
+.Fondobotonanadir {
+    width: 295px;
+    height: 56.76px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F8BFDA;
+    border-radius: 15px;
+}
+
+.Anadircatalogo {
+    width: 206px;
+    height: 26.52px;
+    left: 62px;
+    top: 11.82px;
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.Anadir {
+    width: 56px;
+    height: 56px;
+    left: 5px;
+    top: 0px;
+    position: absolute;
+}
+
+.Petalo1 {
+    width: 195px;
+    height: 195px;
+    left: 1692px;
+    top: 406px;
+    position: absolute;
+}
+
+.Petalo2 {
+    width: 163.21px;
+    height: 119.12px;
+    left: 553.76px;
+    top: 102.56px;
+    position: absolute;
+    transform: rotate(120deg);
+    transform-origin: 0 0;
+}
+
+.Petalo3 {
+    width: 108.09px;
+    height: 108.09px;
+    left: 438.88px;
+    top: 439px;
+    position: absolute;
+    transform: rotate(11.14deg);
+    transform-origin: 0 0;
+    filter: blur(1px);
+}
+
+.Petalo4 {
+    width: 105px;
+    height: 77px;
+    left: 1803.64px;
+    top: 147.19px;
+    position: absolute;
+    transform: rotate(-127.31deg);
+    transform-origin: 0 0;
+    filter: blur(1px);
+}
+
+.Petalo5 {
+    width: 105px;
+    height: 77px;
+    left: 1562px;
+    top: 848.86px;
+    position: absolute;
+    transform: rotate(-36.78deg);
+    transform-origin: 0 0;
+    filter: blur(2px);
+}
+
+.Petalo6 {
+    width: 108.09px;
+    height: 108.09px;
+    left: 1082.88px;
+    top: 20px;
+    position: absolute;
+    transform: rotate(11.14deg);
+    transform-origin: 0 0;
+    filter: blur(2px);
+}
+
+.FlechaDer {
+    width: 59px;
+    height: 59px;
+    left: 1832px;
+    top: 834px;
+    position: absolute;
+}
+
+.FlechaIzq {
+    width: 59px;
+    height: 59px;
+    left: 449px;
+    top: 893px;
+    position: absolute;
+    transform: rotate(-180deg);
+    transform-origin: 0 0;
+}

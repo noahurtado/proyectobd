@@ -1,0 +1,282 @@
+.Bienvenida{
+    width: 1920px;
+    height: 919px;
+    position: relative;
+    background: #F4F5FA;
+    overflow: hidden;
+}
+
+.FondoMenu{
+    width: 411px;
+    height: 919px;
+    left: -56px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+}
+
+.IconoPrograma{
+    width: 69.35px;
+    height: 69.35px;
+    left: 80px;
+    top: 48px;
+    position: absolute;
+}
+
+.IconoElipseFlor{
+    width: 69.35px;
+    height: 69.35px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 9999px;
+}
+
+.IconoProgramaFlor{
+    width: 50.33px;
+    height: 50.33px;
+    left: 11.19px;
+    top: 10.07px;
+    position: absolute;
+}
+
+.BotonProductor{
+    width: 283px;
+    height: 68px;
+    left: 80px;
+    top: 182px;
+    position: absolute;
+}
+
+.FondoBotonProductor{
+    width: 283px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 15px;
+}
+
+.FondoBotonProductor:hover{
+    background: #fff4f9;
+}
+
+.Productores{
+    width: 195px;
+    height: 21px;
+    left: 65px;
+    top: 19px;
+    position: absolute;
+    color: #F8BFDA;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.IconoProductores{
+    width: 40px;
+    height: 34.04px;
+    left: 14px;
+    top: 16px;
+    position: absolute;
+}
+
+.BotonFloristeria{
+    width: 283px;
+    height: 68px;
+    left: 80px;
+    top: 270px;
+    position: absolute;
+}
+
+.FondoBotonFloristeria{
+    width: 283px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 15px;
+}
+
+.FondoBotonFloristeria:hover{
+    background: #fff4f9;
+}
+
+.Floristerias{
+    width: 195px;
+    height: 21px;
+    left: 65px;
+    top: 19px;
+    position: absolute;
+    color: #F8BFDA;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.IconoFloristerias{
+    width: 35px;
+    height: 35px;
+    left: 16px;
+    top: 16px;
+    position: absolute;
+}
+
+.Petalo1{
+    width: 165px;
+    height: 165px;
+    left: 1088.85px;
+    top: 38.19px;
+    position: absolute;
+    transform: rotate(97.32deg);
+    transform-origin: 0 0;
+    filter: blur(3px);
+}
+
+.Petalo2{
+    width: 146.91px;
+    height: 107.22px;
+    left: 1552.78px;
+    top: 649.73px;
+    position: absolute;
+    transform: rotate(-123.82deg);
+    transform-origin: 0 0; 
+    filter: blur(4px);
+}
+
+.Petalo3{
+    width: 126px;
+    height: 126px;
+    left: 1304.11px;
+    top: 928.48px;
+    position: absolute;
+    transform: rotate(-148.21deg);
+    transform-origin: 0 0;
+    filter: blur(4px);
+}
+
+.Petalo4{
+    width: 182px;
+    height: 182px;
+    left: 586.02px;
+    top: 478.30px;
+    position: absolute;
+    transform: rotate(93.25deg);
+    transform-origin: 0 0;
+    filter: blur(3px);
+}
+
+.Petalo5{
+    width: 108.09px;
+    height: 108.09px;
+    left: 481.44px;
+    top: 835.55px;
+    position: absolute;
+    transform: rotate(11.14deg);
+    transform-origin: 0 0;
+    filter: blur(4px);
+}
+
+.Petalo6{
+    width: 105px;
+    height: 77px;
+    left: 1862.01px;
+    top: 424px;
+    position: absolute;
+    transform: rotate(-180deg);
+    transform-origin: 0 0;
+    filter: blur(4px);
+}
+
+.Petalo7{
+    width: 147.75px;
+    height: 92px;
+    left: 1730px;
+    top: 99.55px;
+    position: absolute;
+    transform: rotate(-60.47deg);
+    transform-origin: 0 0;
+    filter: blur(4px);
+}
+
+.Petalo8{
+    width: 167.31px;
+    height: 122.11px;
+    left: 1787.66px;
+    top: 765.34px;
+    position: absolute;
+    transform: rotate(135deg);
+    transform-origin: 0 0;
+    filter: blur(3px);
+}
+
+.Petalo9{
+    width: 163.21px;
+    height: 119.12px;
+    left: 619.77px;
+    top: 8.56px;
+    position: absolute;
+    transform: rotate(120deg);
+    transform-origin: 0 0;
+    filter: blur(2px);
+}
+
+.Cuadro{
+    width: 996px;
+    height: 591px;
+    left: 581.01px;
+    top: 123px;
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+}
+
+.Subtitulo{
+    width: 695px;
+    height: 179px;
+    left: 712.01px;
+    top: 456px;
+    position: absolute;
+    color: #8B8D97;
+    font-size: 32px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.Titulo{
+    width: 665px;
+    height: 218px;
+    left: 705.01px;
+    top: 206px;
+    position: absolute;
+    color: #45464E;
+    font-size: 64px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+.Petalo10{
+    width: 248px;
+    height: 181px;
+    left: 712.01px;
+    top: 725.92px;
+    position: absolute;
+    transform: rotate(-21.51deg);
+    transform-origin: 0 0;
+}
+
+.Petalo11{
+    width: 265px;
+    height: 265px;
+    left: 1420.01px;
+    top: -14px;
+    position: absolute;
+}

@@ -1,0 +1,845 @@
+.AnadirCatalogo {
+    width: 1920px;
+    height: 919px;
+    position: relative;
+    background: #F4F5FA;
+}
+
+
+.FondoMenu{
+    width: 411px;
+    height: 919px;
+    left: -56px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+}
+
+.IconoPrograma{
+    width: 69.35px;
+    height: 69.35px;
+    left: 80px;
+    top: 48px;
+    position: absolute;
+}
+
+.IconoElipseFlor{
+    width: 69.35px;
+    height: 69.35px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 9999px;
+}
+
+.IconoProgramaFlor{
+    width: 50.33px;
+    height: 50.33px;
+    left: 11.19px;
+    top: 10.07px;
+    position: absolute;
+}
+
+.BotonProductor{
+    width: 283px;
+    height: 68px;
+    left: 80px;
+    top: 182px;
+    position: absolute;
+}
+
+.BotonProductor:hover .FondoBotonProductor{
+    background: #e9a2c3;
+}
+.BotonProductor:hover .Productores{
+    color: #faecf2;
+}
+
+.FondoBotonProductor{
+    width: 283px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F8BFDA;
+    border-radius: 15px;
+}
+
+.Productores{
+    width: 195px;
+    height: 21px;
+    left: 65px;
+    top: 19px;
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.IconoProductores{
+    width: 40px;
+    height: 34.04px;
+    left: 14px;
+    top: 16px;
+    position: absolute;
+}
+
+.BotonFloristeria{
+    width: 283px;
+    height: 68px;
+    left: 80px;
+    top: 270px;
+    position: absolute;
+}
+
+.FondoBotonFloristeria{
+    width: 283px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 15px;
+}
+
+.FondoBotonFloristeria:hover{
+    background: #fff4f9;
+}
+
+.Floristerias{
+    width: 195px;
+    height: 21px;
+    left: 65px;
+    top: 19px;
+    position: absolute;
+    color: #F8BFDA;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.IconoFloristerias{
+    width: 35px;
+    height: 35px;
+    left: 16px;
+    top: 16px;
+    position: absolute;
+}
+
+
+.Titulo {
+    width: 665px;
+    height: 95px;
+    left: 464px;
+    top: 35px;
+    position: absolute;
+    color: #45464E;
+    font-size: 48px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+.Cuadroanadircat {
+    width: 721px;
+    height: 706px;
+    left: 462px;
+    top: 130px;
+    position: absolute;
+    background: white;
+    border-radius: 15px;
+}
+
+.Fieldnombre {
+    width: 586px;
+    height: 109px;
+    left: 507px;
+    top: 176px;
+    position: absolute;
+}
+
+.Fondofield1 {
+    width: 545px;
+    height: 71px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 10px;
+}
+
+#Nombrecat {
+    width: 350px;
+    height: 35px;
+    left: 31px;
+    top: 18px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Mensajeerror1 {
+    width: 350px;
+    height: 35px;
+    left: 6px;
+    top: 74px;
+    position: absolute;
+    color: #EF7D86;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    visibility: hidden;
+}
+
+.Error1 {
+    width: 31px;
+    height: 31px;
+    left: 555px;
+    top: 19px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.Fieldvbn {
+    width: 267px;
+    height: 111px;
+    left: 507px;
+    top: 302px;
+    position: absolute;
+}
+
+.Fondofield2 {
+    width: 226px;
+    height: 71px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 10px;
+}
+
+#Codvbn {
+    width: 188px;
+    height: 35px;
+    left: 29px;
+    top: 18px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Mensajeerror2 {
+    width: 226px;
+    height: 35px;
+    left: 6px;
+    top: 76px;
+    position: absolute;
+    color: #EF7D86;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    visibility: hidden;
+}
+
+.Error2 {
+    width: 31px;
+    height: 31px;
+    left: 236px;
+    top: 19px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.Fieldflor {
+    width: 428px;
+    height: 109px;
+    left: 507px;
+    top: 430px;
+    position: relative;
+}
+
+.Fondofield3 {
+    width: 387px;
+    height: 71px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 10px;
+    border-color: white;
+    overflow: hidden;
+}
+
+select {
+    width: 350px;
+    height: 40px;
+    padding-left: 30px;
+    top: 18px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    appearance: none;
+}
+
+.Mensajeerror3 {
+    width: 350px;
+    height: 35px;
+    left: 10px;
+    top: 74px;
+    position: absolute;
+    color: #EF7D86;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    visibility: hidden;
+}
+
+.Error3 {
+    width: 31px;
+    height: 31px;
+    left: 397px;
+    top: 20px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.Flechaabajo {
+    width: 47px;
+    height: 49px;
+    left: 323px;
+    top: 10px;
+    position: absolute;
+    pointer-events: none;
+}
+
+.Fielddescripcion {
+    width: 545px;
+    height: 105px;
+    left: 507px;
+    top: 556px;
+    position: absolute;
+}
+
+.Fondofield4 {
+    width: 545px;
+    height: 105px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 10px;
+}
+
+#Descripcion {
+    width: 350px;
+    height: 35px;
+    left: 31px;
+    top: 18px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Anadirflor {
+    width: 188px;
+    height: 35px;
+    left: 513px;
+    top: 685px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Toggleflor {
+    width: 68px;
+    height: 34px;
+    left: 665px;
+    top: 686px;
+    position: absolute;
+}
+
+
+.Rectangulo {
+    width: 68px;
+    height: 34px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: rgba(85, 112, 241, 0.12);
+    border-radius: 102px;
+}
+
+.Circulo {
+    width: 27.20px;
+    height: 27.20px;
+    left: 3.40px;
+    top: 3.40px;
+    position: absolute;
+    background: #BBC5CB;
+    border-radius: 500px;
+}
+
+.Botonanadir {
+    width: 217.38px;
+    height: 50.78px;
+    left: 713px;
+    top: 745px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.Fondobotonanadir {
+    width: 217.38px;
+    height: 50.78px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #99D49D;
+    border-radius: 15px;
+}
+
+.Anadirboton {
+    width: 83px;
+    height: 24px;
+    left: 79px;
+    top: 10px;
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.Plus1 {
+    width: 33px;
+    height: 33px;
+    left: 29px;
+    top: 8px;
+    position: absolute;
+}
+
+
+.Anadirflortrue {
+    width: 666px;
+    height: 706px;
+    left: 1135px;
+    top: 130px;
+    position: absolute;
+}
+
+.Fondocuadroflor {
+    width: 666px;
+    height: 706px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 15px;
+}
+
+.Fieldtemp {
+    width: 387px;
+    height: 106px;
+    left: 120px;
+    top: 531px;
+    position: absolute;
+}
+
+.Fondofield9 {
+    width: 230px;
+    height: 71px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 10px;
+}
+
+#Temperatura {
+    width: 350px;
+    height: 35px;
+    left: 37px;
+    top: 16px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Mensajeerror8 {
+    width: 350px;
+    height: 35px;
+    left: 7px;
+    top: 71px;
+    position: absolute;
+    color: #EF7D86;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    visibility: hidden;
+}
+
+.Error8 {
+    width: 29px;
+    height: 29px;
+    left: 243px;
+    top: 21px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.Fieldcolores {
+    width: 428px;
+    height: 106px;
+    left: 120px;
+    top: 410px;
+    position: absolute;
+}
+
+.Fondofield8 {
+    width: 387px;
+    height: 71px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 10px;
+}
+
+#Colores {
+    width: 350px;
+    height: 35px;
+    left: 37px;
+    top: 16px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Mensajeerror7 {
+    width: 350px;
+    height: 35px;
+    left: 7px;
+    top: 71px;
+    position: absolute;
+    color: #EF7D86;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    visibility: hidden;
+}
+
+.Error7 {
+    width: 29px;
+    height: 29px;
+    left: 399px;
+    top: 20px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.Fieldgenero {
+    width: 428px;
+    height: 106px;
+    left: 120px;
+    top: 289px;
+    position: absolute;
+}
+
+.Fondofield7 {
+    width: 387px;
+    height: 71px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 10px;
+}
+
+#Genero {
+    width: 350px;
+    height: 35px;
+    left: 37px;
+    top: 16px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Mensajeerror6 {
+    width: 350px;
+    height: 35px;
+    left: 7px;
+    top: 71px;
+    position: absolute;
+    color: #EF7D86;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    visibility: hidden;
+}
+
+.Error6 {
+    width: 29px;
+    height: 29px;
+    left: 399px;
+    top: 20px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.Fieldetimologia {
+    width: 428px;
+    height: 106px;
+    left: 120px;
+    top: 168px;
+    position: absolute;
+}
+
+.Fondofield6 {
+    width: 387px;
+    height: 71px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 10px;
+}
+
+#Etimologia {
+    width: 350px;
+    height: 35px;
+    left: 37px;
+    top: 16px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Mensajeerror5 {
+    width: 350px;
+    height: 35px;
+    left: 7px;
+    top: 71px;
+    position: absolute;
+    color: #EF7D86;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    visibility: hidden;
+}
+
+.Error5 {
+    width: 29px;
+    height: 29px;
+    left: 399px;
+    top: 21px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.Fieldnombreflor {
+    width: 428px;
+    height: 106px;
+    left: 120px;
+    top: 47px;
+    position: absolute;
+}
+
+.Fondofield5 {
+    width: 387px;
+    height: 71px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 10px;
+}
+
+#Nombreflor {
+    width: 350px;
+    height: 35px;
+    left: 37px;
+    top: 16px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Mensajeerror4 {
+    width: 350px;
+    height: 35px;
+    left: 7px;
+    top: 71px;
+    position: absolute;
+    color: #EF7D86;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    visibility: hidden;
+}
+
+.Error4 {
+    width: 29px;
+    height: 29px;
+    left: 399px;
+    top: 20px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.Subtitulo {
+    width: 188px;
+    height: 35px;
+    left: 127px;
+    top: 12px;
+    position: absolute;
+    color: #8B8D97;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Fieldflorlocked {
+    width: 422px;
+    height: 71px;
+    left: 507px;
+    top: 430px;
+    position: absolute;
+}
+
+.Fondolocked{
+    width: 387px;
+    height: 71px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    box-shadow: 1px 1px 5px 2px rgba(191.27, 191.27, 191.27, 0.25) inset;
+    border-radius: 10px;
+}
+
+.Florlocked{
+    width: 350px;
+    height: 35px;
+    left: 31px;
+    top: 18px;
+    position: absolute;
+    color: #DBDCDD;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Lock1{
+    width: 20px;
+    height: 23px; 
+    left: 402px; 
+    top: 24px; 
+    position: absolute;
+}
+
+
+
+
+
+
+
+.Petalo2 {
+    width: 163.21px;
+    height: 119.12px;
+    left: 490.76px;
+    top: 52.56px;
+    position: absolute;
+    transform: rotate(120deg);
+    transform-origin: 0 0;
+}
+
+.Petalo3 {
+    width: 108.09px;
+    height: 108.09px;
+    left: 375.88px;
+    top: 760px;
+    position: absolute;
+    transform: rotate(11.14deg);
+    transform-origin: 0 0;
+    filter: blur(1px);
+}
+
+.Petalo4 {
+    width: 105px;
+    height: 77px;
+    left: 1803.64px;
+    top: 147.19px;
+    position: absolute;
+    transform: rotate(-127.31deg);
+    transform-origin: 0 0;
+    filter: blur(1px);
+}
+
+.Petalo5 {
+    width: 105px;
+    height: 77px;
+    left: 1562px;
+    top: 848.86px;
+    position: absolute;
+    transform: rotate(-36.78deg);
+    transform-origin: 0 0;
+    filter: blur(2px);
+}
+
+.Petalo6 {
+    width: 108.09px;
+    height: 108.09px;
+    left: 1082.88px;
+    top: 20px;
+    position: absolute;
+    transform: rotate(11.14deg);
+    transform-origin: 0 0;
+    filter: blur(2px);
+}
