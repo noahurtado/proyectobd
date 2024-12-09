@@ -1,4 +1,4 @@
-.ProductoresCatalogos{
+.FLoristeriasDisponibles{
     width: 1920px;
     height: 919px;
     position: relative;
@@ -55,7 +55,7 @@
     left: 0px;
     top: 0px;
     position: absolute;
-    background: #F8BFDA;
+    background: white;
     border-radius: 15px;
 }
 
@@ -65,7 +65,7 @@
     left: 65px;
     top: 19px;
     position: absolute;
-    color: white;
+    color: #F8BFDA;
     font-size: 20px;
     font-family: Poppins;
     font-weight: 600;
@@ -94,11 +94,11 @@
     left: 0px;
     top: 0px;
     position: absolute;
-    background: white;
+    background: #F8BFDA;
     border-radius: 15px;
 }
 
-.FondoBotonFloristeria:hover{
+.FondoBotonProductor:hover{
     background: #fff4f9;
 }
 
@@ -108,7 +108,7 @@
     left: 65px;
     top: 19px;
     position: absolute;
-    color: #F8BFDA;
+    color: white;
     font-size: 20px;
     font-family: Poppins;
     font-weight: 600;
@@ -136,7 +136,7 @@
     word-wrap: break-word;
 }
 
-.Cuadroproductor1{
+.Cuadrofloristeria1{
     width: 477.14px;
     height: 326.07px;
     left: 606px;
@@ -145,7 +145,7 @@
     display: none;
 }
 
-.Fondoprod1{
+.Fondoflor1{
     width: 477.14px;
     height: 326.07px;
     left: 0px;
@@ -211,7 +211,7 @@
     position: absolute;
 }
 
-.Paisprod1{
+.Paisflor1{
     width: 330px;
     height: 40.21px;
     left: 76.45px;
@@ -224,8 +224,8 @@
     word-wrap: break-word;
 }
 
-.Sitioprod1{
-    width: 390px;
+.emailflor1{
+    width: 410px;
     height: 27.49px;
     left: 36.13px;
     top: 101.54px;
@@ -237,7 +237,7 @@
     word-wrap: break-word;
 }
 
-.Productor1{
+.FLoristeria1{
     width: 407.62px;
     height: 43.98px;
     left: 36.13px;
@@ -250,7 +250,7 @@
     word-wrap: break-word;
 }
 
-.Cuadroproductor2{
+.Cuadrofloristeria2{
     width: 477.14px;
     height: 326.07px;
     left: 1142px;
@@ -259,7 +259,7 @@
     display: none;
 }
 
-.Fondoprod2{
+.Fondoflor2{
     width: 477.14px;
     height: 326.07px;
     left: 0px;
@@ -323,7 +323,7 @@
     position: absolute;
 }
 
-.Paisprod2{
+.Paisflor2{
     width: 330px;
     height: 40.21px;
     left: 76.45px;
@@ -336,8 +336,8 @@
     word-wrap: break-word;
 }
 
-.Sitioprod2{
-    width: 390px;
+.emailflor2{
+    width: 410px;
     height: 27.49px;
     left: 36.13px;
     top: 101.54px;
@@ -349,7 +349,7 @@
     word-wrap: break-word;
 }
 
-.Productor2{
+.FLoristeria2{
     width: 407.62px;
     height: 43.98px;
     left: 36.13px;
@@ -362,7 +362,7 @@
     word-wrap: break-word;
 }
 
-.Cuadroproductor3{
+.Cuadrofloristeria3{
     width: 477.14px;
     height: 326.07px;
     left: 606px;
@@ -371,7 +371,7 @@
     display: none;
 }
 
-.Fondoprod3{
+.Fondoflor3{
     width: 477.14px;
     height: 326.07px;
     left: 0px;
@@ -435,7 +435,7 @@
     position: absolute;
 }
 
-.Paisprod3{
+.Paisflor3{
     width: 330px;
     height: 40.21px;
     left: 76.45px;
@@ -448,8 +448,8 @@
     word-wrap: break-word;
 }
 
-.Sitioprod3{
-    width: 390px;
+.emailflor3{
+    width: 410px;
     height: 27.49px;
     left: 36.13px;
     top: 101.54px;
@@ -461,7 +461,7 @@
     word-wrap: break-word;
 }
 
-.Productor3{
+.FLoristeria3{
     width: 407.62px;
     height: 43.98px;
     left: 36.13px;
@@ -474,7 +474,7 @@
     word-wrap: break-word;
 }
 
-.Cuadroproductor4{
+.Cuadrofloristeria4{
     width: 477.14px;
     height: 326.07px;
     left: 1142px;
@@ -483,7 +483,7 @@
     display: none;
 }
 
-.Fondoprod4{
+.Fondoflor4{
     width: 477.14px;
     height: 326.07px;
     left: 0px;
@@ -547,7 +547,7 @@
     position: absolute;
 }
 
-.Paisprod4{
+.Paisflor4{
     width: 330px;
     height: 40.21px;
     left: 76.45px;
@@ -560,8 +560,8 @@
     word-wrap: break-word;
 }
 
-.Sitioprod4{
-    width: 390px;
+.emailflor4{
+    width: 410px;
     height: 27.49px;
     left: 36.13px;
     top: 101.54px;
@@ -573,7 +573,7 @@
     word-wrap: break-word;
 }
 
-.Productor4{
+.FLoristeria4{
     width: 407.62px;
     height: 43.98px;
     left: 36.13px;

@@ -141,6 +141,7 @@
     font-family: Poppins;
     font-weight: 700;
     word-wrap: break-word;
+    display: none;
 }
 
 .Cuadrocatalogo1{
@@ -149,6 +150,7 @@
     left: 606px;
     top: 101px;
     position: absolute;
+    display: none;
 }
 
 .Fondocuadrocat1{
@@ -253,6 +255,7 @@
     left: 1142px;
     top: 101px;
     position: absolute;
+    display: none;
 }
 
 .Fondocuadrocat2 {
@@ -357,6 +360,7 @@
     left: 606px;
     top: 472px;
     position: absolute;
+    display: none;
 }
 
 .Fondocuadrocat3 {
@@ -461,6 +465,7 @@
     left: 1142px;
     top: 472px;
     position: absolute;
+    display: none;
 }
 
 .Fondocuadrocat4 {

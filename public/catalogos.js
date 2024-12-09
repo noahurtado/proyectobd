@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => { 
         console.log(data);
         if (data && data.nombre) { 
-            const NombreProductor = document.querySelector('.NombreProductor'); 
+            const NombreProductor = document.querySelector('.NombreProductor');
+            NombreProductor.style.display = 'block'; 
             NombreProductor.innerText = data.nombre; 
         } else { 
             console.error('El nombre del productor no está disponible'); 
