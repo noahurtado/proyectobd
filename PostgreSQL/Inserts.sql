@@ -319,7 +319,7 @@ INSERT INTO facturas_compras (fecha_emision, monto_total, id_subastadora, id_flo
 ('2024-09-01', 5800.00, 19, 19, 290.00),
 ('2024-09-15', 6200.00, 20, 20, 310.00);
 
-INSERT INTO lotes (id_factura_compra, id_productor, cod_vbn, id_subastadora, id_contrato, cantidad, precio_inicial, indice_calidad, precio_final) VALUES
+INSERT INTO lotes (id_factura_compra, id_productor, cod_vbn, id_subastadora, id_contrato, cantidad, precio_final, indice_calidad, precio_inicial) VALUES
 (1, 1, 10001, 1, 10001, 500, 15.00, 0.9, 13.50),
 (2, 1, 10002, 2, 10002, 300, 12.00, 0.8, 9.60),
 (3, 2, 10003, 3, 10003, 450, 10.00, 0.7, 7.00),
