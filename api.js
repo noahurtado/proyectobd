@@ -51,6 +51,20 @@ client.connect(err => {
     });
 
   
+    // Endpoint para obtener todos las floristerias
+    app.get('/Floristerias', async (req, res) => {
+      try {
+          const result = await client.query(`
+              SELECT f.id_floristeria, f.nombre, f.email, paises.nombre AS pais_nombre
+              FROM Floristerias f
+              JOIN Paises ON f.id_pais = paises.id_pais
+          `);
+          res.status(200).json(result.rows);
+      } catch (err) {
+          console.error('Error ejecutando query', err.stack);
+          res.status(500).send('Error en la consulta a la base de datos');
+      }
+  });
  
   
   // Endpoint para obtener los catálogos de un productor específico
