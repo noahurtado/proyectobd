@@ -1,0 +1,398 @@
+
+.Catalogosfloristerias{
+    width: 1920px;
+    height: 919px;
+    position: relative;
+    background: #F4F5FA;
+}
+
+.FondoMenu{
+    width: 411px;
+    height: 919px;
+    left: -56px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+}
+
+.IconoPrograma{
+    width: 69.35px;
+    height: 69.35px;
+    left: 80px;
+    top: 48px;
+    position: absolute;
+}
+
+.IconoElipseFlor{
+    width: 69.35px;
+    height: 69.35px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 9999px;
+}
+
+.IconoProgramaFlor{
+    width: 50.33px;
+    height: 50.33px;
+    left: 11.19px;
+    top: 10.07px;
+    position: absolute;
+}
+
+.BotonProductor{
+    width: 283px;
+    height: 68px;
+    left: 80px;
+    top: 182px;
+    position: absolute;
+}
+
+.BotonFloristeria:hover .FondoBotonFloristeria{
+    background: #e9a2c3;
+}
+.BotonFloristeria:hover .Floristerias{
+    color: #faecf2;
+}
+
+.FondoBotonProductor{
+    width: 283px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 15px;
+}
+
+.Productores{
+    width: 195px;
+    height: 21px;
+    left: 65px;
+    top: 19px;
+    position: absolute;
+    color: #F8BFDA;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.IconoProductores{
+    width: 40px;
+    height: 34.04px;
+    left: 14px;
+    top: 16px;
+    position: absolute;
+}
+
+.BotonFloristeria{
+    width: 283px;
+    height: 68px;
+    left: 80px;
+    top: 270px;
+    position: absolute;
+}
+
+.FondoBotonFloristeria{
+    width: 283px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F8BFDA;
+    border-radius: 15px;
+}
+
+.FondoBotonProductor:hover{
+    background: #fff4f9;
+}
+
+.Floristerias{
+    width: 195px;
+    height: 21px;
+    left: 65px;
+    top: 19px;
+    position: absolute;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.IconoFloristerias{
+    width: 35px;
+    height: 35px;
+    left: 16px;
+    top: 16px;
+    position: absolute;
+}
+
+
+
+
+
+
+.NombreFloristerA {
+    width: 665px;
+    height: 95px;
+    left: 606px;
+    top: 22px;
+    position: absolute;
+    color: #45464E;
+    font-size: 48px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word;
+    display: none;
+}
+
+
+.Cuadrocatalogo1, .Cuadrocatalogo2, .Cuadrocatalogo3, .Cuadrocatalogo4 {
+    width: 477px;
+    height: 360px;
+    position: absolute;
+}
+
+.Cuadrocatalogo1 { left: 606px; top: 101px; }
+.Cuadrocatalogo2 { left: 1142px; top: 101px; }
+.Cuadrocatalogo3 { left: 604px; top: 488px; }
+.Cuadrocatalogo4 { left: 1142px; top: 488px; }
+
+.Fondocuadrocat1, .Fondocuadrocat2, .Fondocuadrocat3, .Fondocuadrocat4 {
+    width: 477px;
+    height: 360px;
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+}
+
+.Catalogo1, .Catalogo2, .Catalogo3, .Catalogo4 {
+    width: 432.93px;
+    height: 52.62px;
+    position: absolute;
+    color: #45464E;
+    font-size: 36px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word;
+    left: 44px;
+    top: 18px;
+}
+
+.Vbn1, .Vbn2, .Vbn3, .Vbn4 {
+    width: 291.96px;
+    height: 32.89px;
+    position: absolute;
+    color: #8B8D97;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+    left: 44px;
+    top: 71px;
+}
+
+.Valoracion1, .Valoracion2, .Valoracion3, .Valoracion4 {
+    width: 195px;
+    height: 39px;
+    position: absolute;
+    left: 36px;
+    top: 109px;
+}
+
+.Estrella1Valoracion1, .Estrella2Valoracion1, .Estrella3Valoracion1, .Estrella4Valoracion1, .Estrella5Valoracion1,
+.Estrella1Valoracion2, .Estrella2Valoracion2, .Estrella3Valoracion2, .Estrella4Valoracion2, .Estrella5Valoracion2,
+.Estrella1Valoracion3, .Estrella2Valoracion3, .Estrella3Valoracion3, .Estrella4Valoracion3, .Estrella5Valoracion3,
+.Estrella1Valoracion4, .Estrella2Valoracion4, .Estrella3Valoracion4, .Estrella4Valoracion4, .Estrella5Valoracion4 {
+    width: 39px;
+    height: 39px;
+    position: absolute;
+}
+
+
+    .Estrella1Valoracion1, .Estrella1Valoracion2, .Estrella1Valoracion3, .Estrella1Valoracion4 {
+        left: 0px;
+        top: 0px; 
+    }
+
+    .Estrella2Valoracion1, .Estrella2Valoracion2, .Estrella2Valoracion3, .Estrella2Valoracion4 {
+        left: 39px;
+        top: 0px; 
+    }
+
+    .Estrella3Valoracion1, .Estrella3Valoracion2, .Estrella3Valoracion3, .Estrella3Valoracion4 {
+        left: 78px;
+        top: 0px; 
+    }
+
+    .Estrella4Valoracion1, .Estrella4Valoracion2, .Estrella4Valoracion3, .Estrella4Valoracion4 {
+        left: 117px;
+        top: 0px; 
+    }
+
+    .Estrella5Valoracion1, .Estrella5Valoracion2, .Estrella5Valoracion3, .Estrella5Valoracion4 {
+        left: 156px;
+        top: 0px; 
+    }
+
+
+.Colorpicker1, .Colorpicker2, .Colorpicker3, .Colorpicker4 {
+    width: 32px;
+    height: 31px;
+    left: 39px;
+    top: 158px;
+    position: absolute;
+    border-radius: 9999px;
+    border: 3px #B0B3C1 solid;
+}
+
+.Color1, .Color2, .Color3, .Color4 {
+    width: 326px;
+    height: 30px;
+    position: absolute;
+    color: #B0B3C1;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+    left: 81px;
+    top: 159px;
+}
+
+.Desc1, .Desc2, .Desc3, .Desc4 {
+    width: 34px;
+    height: 39px;
+    position: absolute;
+    left: 37px;
+    top: 212px;
+}
+
+.Descripcion1, .Descripcion2, .Descripcion3, .Descripcion4 {
+    width: 382px;
+    height: 70px;
+    position: absolute;
+    color: #B0B3C1;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+    left: 81px;
+    top: 202px;
+}
+
+.Botoncatalogo1, .Botoncatalogo2, .Botoncatalogo3, .Botoncatalogo4 {
+    width: 181.33px;
+    height: 47.72px;
+    position: absolute;
+    left: 148px;
+    top: 286px;
+}
+
+.Fondobotoncat1, .Fondobotoncat2, .Fondobotoncat3, .Fondobotoncat4 {
+    width: 181.33px;
+    height: 47.72px;
+    position: absolute;
+    background: #F8BFDA;
+    border-radius: 15px;
+}
+
+.Vercatalogo1, .Vercatalogo2, .Vercatalogo3, .Vercatalogo4 {
+    width: 120.12px;
+    height: 22.55px;
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+    left: 30.86px;
+    top: 9.40px;
+}
+
+
+.FlechaDer{
+    width: 59px;
+    height: 59px;
+    left: 1832px;
+    top: 834px;
+    position: absolute;
+}
+
+.FlechaIzq{
+    width: 59px;
+    height: 59px;
+    left: 449px;
+    top: 893px;
+    position: absolute;
+    transform: rotate(-180deg);
+    transform-origin: 0 0;
+}
+
+.Petalo1 {
+    width: 195px;
+    height: 195px;
+    left: 1692px;
+    top: 406px;
+    position: absolute;
+}
+
+.Petalo2 {
+    width: 163.21px;
+    height: 119.12px;
+    left: 553.76px;
+    top: 102.56px;
+    position: absolute;
+    transform: rotate(120deg);
+    transform-origin: 0 0;
+}
+
+.Petalo3 {
+    width: 108.09px;
+    height: 108.09px;
+    left: 438.88px;
+    top: 439px;
+    position: absolute;
+    transform: rotate(11.14deg);
+    transform-origin: 0 0;
+    filter: blur(1px);
+}
+
+.Petalo4 {
+    width: 105px;
+    height: 77px;
+    left: 1803.64px;
+    top: 147.19px;
+    position: absolute;
+    transform: rotate(-127.31deg);
+    transform-origin: 0 0;
+    filter: blur(1px);
+}
+
+.Petalo5 {
+    width: 105px;
+    height: 77px;
+    left: 1562px;
+    top: 848.86px;
+    position: absolute;
+    transform: rotate(-36.78deg);
+    transform-origin: 0 0;
+    filter: blur(2px);
+}
+
+.Petalo6 {
+    width: 108.09px;
+    height: 108.09px;
+    left: 1082.88px;
+    top: 20px;
+    position: absolute;
+    transform: rotate(11.14deg);
+    transform-origin: 0 0;
+    filter: blur(2px);;
+}
+
+

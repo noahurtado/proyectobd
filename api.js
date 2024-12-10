@@ -50,6 +50,23 @@ client.connect(err => {
         }
     });
 
+
+
+    // Endpoint para obtener los detalles de un productor específico
+    app.get('/Floristerias/:id', async (req, res) => {
+      const id_floristeria = req.params.id;
+      try {
+          const result = await client.query('SELECT nombre FROM Floristerias WHERE id_floristeria = $1', [id_floristeria]);
+          if (result.rows.length === 0) {
+              return res.status(404).send('Floristeria no encontrada');
+          }
+          res.status(200).json(result.rows[0]);
+      } catch (err) {
+          console.error('Error obteniendo floristeria', err.stack);
+          res.status(500).send('Error en la consulta');
+      }
+  });
+
   
     // Endpoint para obtener todos las floristerias
     app.get('/Floristerias', async (req, res) => {
@@ -87,6 +104,28 @@ client.connect(err => {
     }
   });
 
+
+  // Endpoint para obtener los catálogos de una floristeria especifica
+  app.get('/CatalogosFloristerias', async (req, res) => {
+    const { id_floristeria } = req.query;
+    if (!id_floristeria) {
+      return res.status(400).send('id_floristeria es requerido');
+    }
+    try {
+      const result = await client.query(`
+        SELECT c.cod_vbn, c.nombre AS nombre_catalogo, c.descripcion
+        FROM catalogos_floristerias c
+        WHERE c.id_floristeria = $1
+      `, [id_floristeria]);
+      console.log(result.rows); // Verifica los datos devueltos
+      res.status(200).json(result.rows);
+    } catch (err) {
+      console.error('Error ejecutando query', err.stack);
+      res.status(500).send('Error en la consulta a la base de datos');
+    }
+  });
+
+
   app.get('/Flores', async (req, res) => {
     try {
         const result = await client.query(`
@@ -100,6 +139,27 @@ client.connect(err => {
             res.status(500).send('Error en la consulta a la base de datos');
         }
     });  
+
+
+
+    app.get('/PromedioCatalogo', async (req, res) => {
+      const { id_floristeria, cod_vbn } = req.query;
+      if (!id_floristeria || !cod_vbn) {
+          return res.status(400).send('id_floristeria y cod_vbn son requeridos');
+      }
+  
+      try {
+          const result = await client.query('SELECT calcular_promedio($1, $2) AS promedio', [id_floristeria, cod_vbn]);
+          if (result.rows.length === 0) {
+              return res.status(404).send('No se encontró el promedio para el catálogo');
+          }
+          res.status(200).json(result.rows[0]);
+      } catch (err) {
+          console.error('Error obteniendo el promedio', err.stack);
+          res.status(500).send('Error en la consulta');
+      }
+  });
+  
 
   
   // Endpoint para agregar una nueva flor

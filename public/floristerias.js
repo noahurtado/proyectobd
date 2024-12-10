@@ -84,25 +84,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 cuadro.querySelector('.Paisflor1').innerText = floristerias.pais_nombre;
                 cuadro.querySelector('.emailflor1').innerText = floristerias.email;
                 cuadro.querySelector('.FLoristeria1').innerText = floristerias.nombre;
-                cuadro.querySelector('a').href = `catalogosfloristerias.html?id_productor=${floristerias.id_floristeria}`;
+                cuadro.querySelector('a').href = `catalogosfloristerias.html?id_floristeria=${floristerias.id_floristeria}`;
                 break;
             case 1:
                 cuadro.querySelector('.Paisflor2').innerText = floristerias.pais_nombre;
                 cuadro.querySelector('.emailflor2').innerText = floristerias.email;
                 cuadro.querySelector('.FLoristeria2').innerText = floristerias.nombre;
-                cuadro.querySelector('a').href = `catalogosfloristerias.html?id_productor=${floristerias.id_floristeria}`;
+                cuadro.querySelector('a').href = `catalogosfloristerias.html?id_floristeria=${floristerias.id_floristeria}`;
                 break;
             case 2:
                 cuadro.querySelector('.Paisflor3').innerText = floristerias.pais_nombre;
                 cuadro.querySelector('.emailflor3').innerText = floristerias.email;
                 cuadro.querySelector('.FLoristeria3').innerText = floristerias.nombre;
-                cuadro.querySelector('a').href = `catalogosfloristerias.html?id_productor=${floristerias.id_floristeria}`;
+                cuadro.querySelector('a').href = `catalogosfloristerias.html?id_floristeria=${floristerias.id_floristeria}`;
                 break;
             case 3:
                 cuadro.querySelector('.Paisflor4').innerText = floristerias.pais_nombre;
                 cuadro.querySelector('.emailflor4').innerText = floristerias.email;
                 cuadro.querySelector('.FLoristeria4').innerText = floristerias.nombre;
-                cuadro.querySelector('a').href = `catalogosfloristerias.html?id_productor=${floristerias.id_floristeria}`;
+                cuadro.querySelector('a').href = `catalogosfloristerias.html?id_floristeria=${floristerias.id_floristeria}`;
                 break;
         }
     }
