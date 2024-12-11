@@ -114,10 +114,11 @@ client.connect(err => {
     }
     try {
       const result = await client.query(`
-        SELECT c.cod_vbn, c.nombre AS nombre_catalogo, c.descripcion
+        SELECT c.cod_vbn, c.nombre AS nombre_catalogo, c.descripcion, c.cod_hex, colores_flores.nombre AS nombre_color
         FROM catalogos_floristerias c
-        WHERE c.id_floristeria = $1
-        ORDER BY c.nombre DESC;
+		    JOIN Colores_flores ON c.cod_hex = colores_flores.cod_hex
+		    WHERE c.id_floristeria = $1
+        ORDER BY c.nombre ASC;
       `, [id_floristeria]);
       console.log(result.rows); // Verifica los datos devueltos
       res.status(200).json(result.rows);
@@ -141,6 +142,22 @@ client.connect(err => {
             res.status(500).send('Error en la consulta a la base de datos');
         }
     });  
+
+
+
+    app.get('/Colores', async (req, res) => {
+      try {
+          const result = await client.query(`
+              SELECT cod_hex, nombre
+              FROM colores_flores
+              `);
+              console.log(result.rows);
+              res.status(200).json(result.rows);
+          } catch (err) {
+              console.error('Error ejecutando query', err.stack);
+              res.status(500).send('Error en la consulta a la base de datos');
+          }
+      }); 
 
 
 

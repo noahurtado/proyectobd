@@ -244,7 +244,7 @@
 .Colorpicker1, .Colorpicker2, .Colorpicker3, .Colorpicker4 {
     width: 32px;
     height: 31px;
-    left: 39px;
+    left: 35px;
     top: 158px;
     position: absolute;
     border-radius: 9999px;
@@ -397,3 +397,50 @@
 }
 
 
+
+
+.Botonanadircatalogo {
+    width: 295px;
+    height: 56.76px;
+    left: 1318px;
+    top: 22px;
+    position: absolute;
+}
+
+.Botonanadircatalogo:hover .Fondobotonanadir{
+    background: #e9a2c3;
+}
+.Botonanadircatalogo:hover .Anadircatalogo{
+    color: #faecf2;
+}
+
+.Fondobotonanadir {
+    width: 295px;
+    height: 56.76px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F8BFDA;
+    border-radius: 15px;
+}
+
+.Anadircatalogo {
+    width: 206px;
+    height: 26.52px;
+    left: 62px;
+    top: 11.82px;
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-family: Poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.Anadir {
+    width: 56px;
+    height: 56px;
+    left: 5px;
+    top: 0px;
+    position: absolute;
+}

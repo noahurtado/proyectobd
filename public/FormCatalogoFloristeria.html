@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>grupo 5</title>
+    <link rel="stylesheet" href="FormCatalogoFloristeria.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap">
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; }
+        .editable-div:focus { outline: none;} .editable-placeholder { color: #e93030;}
+    </style>
+</head>
+<body>
+
+    <div class="AnadirCatalogo">
+
+        <div class="FondoMenu">
+            <div class="IconoPrograma">
+              <div class="IconoElipseFlor">
+                <img class="IconoProgramaFlor" src="images/icono_programa_flor.png" />
+              </div>
+            </div>
+            <a href="productores.html">
+              <div class="BotonProductor">
+                <div class="FondoBotonProductor">
+                  <div class="Productores">Productores</div>
+                  <img class="IconoProductores" src="images/icono_productores_r.png" />
+                </div>
+              </div>
+            </a>
+            <a href="floristerias.html">
+            <div class="BotonFloristeria" >
+              <div class="FondoBotonFloristeria">
+                <div class="Floristerias">Floristerías</div>
+                <img class="IconoFloristerias" src="images/icono_floristerias_b.png" />
+              </div>
+            </div>
+        </a>
+        </div>
+
+
+
+
+
+        <div class="Titulo">Añadir catálogo</div>
+        <div class="Cuadroanadircat"></div>
+        <div class="Fieldnombre">
+            <div class="Fondofield1"></div>
+            <div id="Nombrecat" class="Nombrecat editable-div" contenteditable="true">Nombre del catálogo</div>
+            <div class="Mensajeerror1">Campo obligatorio</div>
+            <img class="Error1" src="images/Error.png" />
+        </div>
+        <div class="Fieldvbn">
+            <div class="Fondofield2"></div>
+            <div id="Codvbn" class="Codvbn editable-div" contenteditable="true">Código VBN</div>
+            <div class="Mensajeerror2">Campo obligatorio</div>
+            <img class="Error2" src="images/Error.png" />
+        </div>
+        <div class="Fieldflor">
+                <select name="Fondofield3" id="Fondofield3" class="Fondofield3">
+                    <option disabled selected value="">Elegir Flor</option>
+                </select>
+            <div class="Mensajeerror3">Campo obligatorio</div>
+            <img class="Error3" src="images/Error.png" />
+            <img class="Flechaabajo" src="images/flechaAbajo.png" />
+        </div>
+
+        <div class="Fieldcolor">
+            <select name="Fondofield10" id="Fondofield10" class="Fondofield10">
+                <option disabled selected value="">Elegir Color</option>
+            </select>
+            <div class="Mensajeerror9">Campo obligatorio</div>
+            <img class="Error9" src="images/Error.png" />
+            <img class="Flechaabajo2" src="images/flechaAbajo.png" />
+            <div class="Colorpicker"></div>
+        </div>
+
+
+        <div class="Fielddescripcion">
+            <div class="Fondofield4"></div>
+            <div id="Descripcion" class="Descripcion editable-div" contenteditable="true">Breve descripción</div>
+        </div>
+
+
+
+        <div class="Anadirflor">Añadir flor</div>
+        <div class="Toggleflor">
+            <div class="Rectangulo"></div>
+            <div class="Circulo"></div>
+        </div>
+
+        <div class="Anadircolor">Añadir color</div>
+        <div class="Togglecolor">
+            <div class="Rectangulo2"></div>
+            <div class="Circulo2"></div>
+        </div>
+
+
+        <div class="Botonanadir">
+            <div class="Fondobotonanadir"></div>
+            <div class="Anadirboton">Añadir</div>
+            <img class="Plus1" src="images/Plus.png" />
+        </div>
+
+        <img class="Petalo2" src="images/petalo_2.png" />
+        <img class="Petalo3" src="images/petalo_1.png" />
+        <img class="Petalo4" src="images/petalo_2.png" />
+        <img class="Petalo5" src="images/petalo_2.png" />
+        <img class="Petalo6" src="images/petalo_1.png" />
+
+
+
+
+                <div class="Anadirflortrue" style="visibility: hidden;">
+                    <div class="Fondocuadroflor"></div>
+                    
+                    <div class="Subtitulo">Añadir flor</div>
+
+                    <div class="Fieldnombreflor">
+                        <div class="Fondofield5"></div>
+                        <div id="Nombreflor" class="Nombreflor editable-div" contenteditable="true">Nombre de la flor</div>
+                        <div class="Mensajeerror4">Campo obligatorio</div>
+                        <img class="Error4" src="images/Error.png" />
+                    </div>
+                    <div class="Fieldetimologia">
+                        <div class="Fondofield6"></div>
+                        <div id="Etimologia" class="Etimologia editable-div" contenteditable="true">Etimología</div>
+                        <div class="Mensajeerror5">Campo obligatorio</div>
+                        <img class="Error5" src="images/Error.png" />
+                    </div>
+                    <div class="Fieldgenero">
+                        <div class="Fondofield7"></div>
+                        <div id="Genero" class="Genero editable-div" contenteditable="true">Género/especie</div>
+                        <div class="Mensajeerror6">Campo obligatorio</div>
+                        <img class="Error6" src="images/Error.png" />
+                    </div>
+                    <div class="Fieldcolores">
+                        <div class="Fondofield8"></div>
+                        <div id="Colores" class="Colores editable-div" contenteditable="true">Colores</div>
+                        <div class="Mensajeerror7">Campo obligatorio</div>
+                        <img class="Error7" src="images/Error.png" />
+                    </div>
+                    <div class="Fieldtemp">
+                        <div class="Fondofield9"></div>
+                        <div id="Temperatura" class="Temperatura editable-div" contenteditable="true">Temperatura</div>
+                        <div class="Mensajeerror8">Campo obligatorio</div>
+                        <img class="Error8" src="images/Error.png" />
+                    </div>
+                    
+                </div>
+
+
+                <div class="Fieldflorlocked" style="visibility: hidden;">
+                    <div class="Fondolocked"></div>
+                    <div class="Florlocked">Elegir Flor</div>
+                    <img class="Lock1" src="images/Lock.png" />
+                </div>
+
+
+
+                <div class="FieldAnadirColor" >
+                    <div class="Fondofield11"></div>
+                    <div id="NombreColor" class="Nombrecolor editable-div" contenteditable="true">Nombre color</div>
+                    <div class="Mensajeerror10" >Campo obligatorio</div>
+                    <img class="Error10" src="images/Error.png" />
+                    <div class="Colorpicker2">
+                        <input type="color" value="#ff0000"  class="AnadirColorPicker" />
+                    </div>
+                    <img class="Flechaabajo3" src="images/flechaAbajo.png" />
+                  </div>
+
+
+
+
+
+
+    </div>
+
+
+    <script src="FormCatalogoFloristeria.js"></script>
+</body>
+</html>

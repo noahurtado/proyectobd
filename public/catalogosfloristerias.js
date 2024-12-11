@@ -39,8 +39,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Cargar y mostrar los catálogos de la floristeria
     fetch(`/CatalogosFloristerias?id_floristeria=${id_floristeria}`)
     .then(response => response.json())
-    .then(data => {
-        displayCatalogs(data);
+    .then(async catalogos => {
+        // Obtener el promedio para cada catálogo
+        for (let catalogo of catalogos) {
+            const response = await fetch(`/PromedioCatalogo?id_floristeria=${id_floristeria}&cod_vbn=${catalogo.cod_vbn}`);
+            const data = await response.json();
+            catalogo.promedio = parseFloat(data.promedio);
+        }
+
+        // Ordenar por promedio (de mayor a menor)
+        catalogos.sort((a, b) => b.promedio - a.promedio);
+
+        
+        displayCatalogs(catalogos);
     })
     .catch(error => {
         console.error('Error:', error);
@@ -63,13 +74,10 @@ document.addEventListener("DOMContentLoaded", function() {
         flechaDer.style.display = 'none';
         flechaIzq.style.display = 'none';
     
-        // Ordenar los catálogos por promedio (de mayor a menor) y por nombre (alfabéticamente) en caso de empate
-        catalogos.sort((a, b) => {
-            if (b.promedio === a.promedio) {
-                return a.nombre_catalogo.localeCompare(b.nombre_catalogo);
-            }
-            return b.promedio - a.promedio;
-        });
+
+
+
+
     
         // Mostrar los cuadros con datos
         updateRectangles(catalogos, rectangles, currentIndex);
@@ -130,6 +138,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 cuadro.querySelector('.Catalogo1').innerText = catalogo.nombre_catalogo;
                 cuadro.querySelector('.Vbn1').innerText = `VBN no. ${catalogo.cod_vbn}`;
                 cuadro.querySelector('.Descripcion1').innerText = catalogo.descripcion;
+                cuadro.querySelector('.Color1').innerText = catalogo.nombre_color;
+                cuadro.querySelector('.Colorpicker1').style.backgroundColor = `#${catalogo.cod_hex}`;
                 // Obtener el promedio del catálogo y actualizar las estrellas
                 
                 fetch(`/PromedioCatalogo?id_floristeria=${id_floristeria}&cod_vbn=${catalogo.cod_vbn}`)
@@ -179,6 +189,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 cuadro.querySelector('.Catalogo2').innerText = catalogo.nombre_catalogo;
                 cuadro.querySelector('.Vbn2').innerText = `VBN no. ${catalogo.cod_vbn}`;
                 cuadro.querySelector('.Descripcion2').innerText = catalogo.descripcion;
+                cuadro.querySelector('.Color2').innerText = catalogo.nombre_color;
+                cuadro.querySelector('.Colorpicker2').style.backgroundColor = `#${catalogo.cod_hex}`;
 
                 fetch(`/PromedioCatalogo?id_floristeria=${id_floristeria}&cod_vbn=${catalogo.cod_vbn}`)
                         .then(response => response.json())
@@ -227,6 +239,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 cuadro.querySelector('.Catalogo3').innerText = catalogo.nombre_catalogo;
                 cuadro.querySelector('.Vbn3').innerText = `VBN no. ${catalogo.cod_vbn}`;
                 cuadro.querySelector('.Descripcion3').innerText = catalogo.descripcion;
+                cuadro.querySelector('.Color3').innerText = catalogo.nombre_color;
+                cuadro.querySelector('.Colorpicker3').style.backgroundColor = `#${catalogo.cod_hex}`;
 
                 fetch(`/PromedioCatalogo?id_floristeria=${id_floristeria}&cod_vbn=${catalogo.cod_vbn}`)
                         .then(response => response.json())
@@ -275,6 +289,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 cuadro.querySelector('.Catalogo4').innerText = catalogo.nombre_catalogo;
                 cuadro.querySelector('.Vbn4').innerText = `VBN no. ${catalogo.cod_vbn}`;
                 cuadro.querySelector('.Descripcion4').innerText = catalogo.descripcion;
+                cuadro.querySelector('.Color4').innerText = catalogo.nombre_color;
+                cuadro.querySelector('.Colorpicker4').style.backgroundColor = `#${catalogo.cod_hex}`;
 
                 fetch(`/PromedioCatalogo?id_floristeria=${id_floristeria}&cod_vbn=${catalogo.cod_vbn}`)
                         .then(response => response.json())
@@ -328,6 +344,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Función para actualizar la visualización de los cuadros
     function updateRectangles(catalogos, rectangles, startIndex) {
+        
         // Ocultar todos los cuadros
         rectangles.forEach(rect => rect.style.display = 'none');
     

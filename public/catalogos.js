@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function displayCatalogs(catalogos) {
-        alert(id_productor);
         const rectangles = [
             document.querySelector('.Cuadrocatalogo1'),
             document.querySelector('.Cuadrocatalogo2'),
