@@ -27,6 +27,7 @@ client.connect(err => {
                 SELECT p.id_productor, p.nombre, p.sitio_web, p.email, paises.nombre AS pais_nombre
                 FROM Productores p
                 JOIN Paises ON p.id_pais = paises.id_pais
+                ORDER BY id_productor ASC;
             `);
             res.status(200).json(result.rows);
         } catch (err) {
@@ -116,6 +117,7 @@ client.connect(err => {
         SELECT c.cod_vbn, c.nombre AS nombre_catalogo, c.descripcion
         FROM catalogos_floristerias c
         WHERE c.id_floristeria = $1
+        ORDER BY c.nombre DESC;
       `, [id_floristeria]);
       console.log(result.rows); // Verifica los datos devueltos
       res.status(200).json(result.rows);

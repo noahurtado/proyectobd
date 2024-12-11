@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function displayData(productores) {
+        console.log(productores);
         const rectangles = [
             document.querySelector('.Cuadroproductor1'),
             document.querySelector('.Cuadroproductor2'),
