@@ -1,15 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     const params = new URLSearchParams(window.location.search);
-    const id_floristeria = params.get('id_floristeria');
+    const id_floristeriaa = params.get('id_floristeria');
     
-    const Botonanadir = document.querySelector('.Botonanadir');
+    const Botonanadir = document.getElementById('Botonanadir');
 
     const Nombrecat = document.getElementById('Nombrecat');
     const Codvbn = document.getElementById('Codvbn');
     const elegirFlor = document.getElementById('Fondofield3');
     const elegirColor = document.getElementById('Fondofield10');
     const Descripcion = document.getElementById('Descripcion');
+    const colorpicker = document.getElementById('colorpicker');
     const textoNombrecat = Nombrecat.textContent;
     const textoCodvbn = Codvbn.textContent;
     const textoDescripcion = Descripcion.textContent;
@@ -22,14 +23,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const Colores = document.getElementById('Colores');
     const Temperatura = document.getElementById('Temperatura');
     const Fieldflorlocked = document.querySelector('.Fieldflorlocked');
-    const FieldAnadirColor = document.querySelector('.FieldAnadirColor');
+    const FieldAnadirColor = document.getElementById('FieldAnadirColor');
+    FieldAnadirColor.style.visibility = 'hidden';
     const NombreColor = document.getElementById('NombreColor');
+    const colorpicker2 = document.querySelector('.AnadirColorPicker');
+    const FieldDescripcioncolor = document.querySelector('.FieldDescripcioncolor');
+    const descripcioncolor = document.getElementById('Descripcioncolor');
     const textoNombreflor = Nombreflor.textContent;
     const textoEtimologia = Etimologia.textContent;
     const textoGenero = Genero.textContent;
     const textoColores = Colores.textContent;
     const textoTemperatura = Temperatura.textContent;
     const textoNombreColor = NombreColor.textContent;
+    const textoDescripcioncolor = Descripcioncolor.textContent;
 
 
     const toggleFlor = document.querySelector('.Toggleflor');
@@ -83,6 +89,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
 
+        elegirColor.addEventListener('change', function() {
+            const selectedColor = elegirColor.value;
+            colorpicker.style.backgroundColor = `#${selectedColor}`;
+        });
 
 
     Nombrecat.addEventListener('focus', () => {
@@ -176,6 +186,17 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
+    Descripcioncolor.addEventListener('focus', () => {
+        Descripcioncolor.textContent = ''; // Elimina el texto al hacer clic y enfocar
+    });
+
+    Descripcioncolor.addEventListener('blur', () => {
+        if (Descripcioncolor.textContent.trim() === '') {
+            Descripcioncolor.textContent = textoDescripcioncolor; // Restaura el texto original si está vacío
+        }
+    });
+
+
 
 
 
@@ -198,13 +219,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     toggleColor.addEventListener('click', () => {
-        if (FieldAnadirColor.style.visibility === 'hidden' || FieldAnadirColor.style.visibility === '') {
+        if (FieldAnadirColor.style.visibility === 'hidden') {
             FieldAnadirColor.style.visibility = 'visible';
+            FieldDescripcioncolor.style.visibility = 'visible';
             rectangulo2.style.backgroundColor = 'rgba(248, 191, 218, 0.42)';
             circulo2.style.backgroundColor = 'rgba(248, 191, 218, 1)';
             circulo2.style.left = '36.40px';
         } else {
             FieldAnadirColor.style.visibility = 'hidden';
+            FieldDescripcioncolor.style.visibility = 'hidden';
             rectangulo2.style.backgroundColor = 'rgba(85, 112, 241, 0.12)';
             circulo2.style.backgroundColor = 'rgba(187, 197, 203, 1)';
             circulo2.style.left = '3.40px';
@@ -212,35 +235,45 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-
-
-    document.getElementById('colorPicker').addEventListener('input', function() {
+    if (colorpicker2) {
+        // Establecer el valor inicial del colorpicker como blanco
+        colorpicker2.value = '#FFFFFF';
+    colorpicker.addEventListener('input', function() {
         let colorValue = this.value;
     
         // Asegurarse de que el valor sea un código hexadecimal válido
         if (/^#[0-9A-F]{6}$/i.test(colorValue)) {
+            alert('a');
             this.value = colorValue.toUpperCase(); // Convertir a mayúsculas
         } else {
             // Si el valor no es válido, restablecer al valor anterior
             this.value = '#FF0000';
         }
     });
+} else {
+    console.error('Elemento con ID "colorPicker" no encontrado');
+}
 
 
+
+    
+if (Botonanadir) {
 
     Botonanadir.addEventListener('click', () => {
         // Oculta todos los mensajes de error inicialmente
-        const mensajesError = document.querySelectorAll('.Mensajeerror1, .Mensajeerror2, .Mensajeerror3, .Mensajeerror4, .Mensajeerror5, .Mensajeerror6, .Mensajeerror7, .Mensajeerror8');
-        const errores = document.querySelectorAll('.Error1, .Error2, .Error3, .Error4, .Error5, .Error6, .Error7, .Error8');
+        const mensajesError = document.querySelectorAll('.Mensajeerror1, .Mensajeerror2, .Mensajeerror3, .Mensajeerror4, .Mensajeerror5, .Mensajeerror6, .Mensajeerror7, .Mensajeerror8, .Mensajeerror9, .Mensajeerror10, .Mensajeerror11');
+        const errores = document.querySelectorAll('.Error1, .Error2, .Error3, .Error4, .Error5, .Error6, .Error7, .Error8, .Error9, .Error10, .Error11');
     
         mensajesError.forEach(mensaje => mensaje.style.visibility = 'hidden');
         errores.forEach(error => error.style.visibility = 'hidden');
     
         let esValido = true; // Variable para controlar la validez de los campos
         let id_flor_corte = document.getElementById('Fondofield3').value; // Obtener el valor del select
+        let nombre_color = document.getElementById('Fondofield10').value; // Obtener el valor del select
     
         // Verifica campos si Anadirflortrue está oculto
         if (Anadirflortrue.style.visibility === 'hidden') {
+            if (FieldAnadirColor.style.visibility === 'hidden') {
             if (Nombrecat.textContent.trim() === textoNombrecat.trim()) {
                 document.querySelector('.Mensajeerror1').style.visibility = 'visible';
                 document.querySelector('.Error1').style.visibility = 'visible';
@@ -256,8 +289,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.querySelector('.Error3').style.visibility = 'visible';
                 esValido = false;
             }
-        } else { // Si Anadirflortrue está visible
-            // Validaciones adicionales
+            if (!nombre_color) { // Verifica el select
+                document.querySelector('.Mensajeerror9').style.visibility = 'visible';
+                document.querySelector('.Error9').style.visibility = 'visible';
+                esValido = false;
+            }
+            }
+        } 
+        
+        if (FieldAnadirColor.style.visibility === 'visible') {
             if (Nombrecat.textContent.trim() === textoNombrecat.trim()) {
                 document.querySelector('.Mensajeerror1').style.visibility = 'visible';
                 document.querySelector('.Error1').style.visibility = 'visible';
@@ -268,30 +308,99 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.querySelector('.Error2').style.visibility = 'visible';
                 esValido = false;
             }
-            if (Nombreflor.textContent.trim() === textoNombreflor.trim()) {
-                document.querySelector('.Mensajeerror4').style.visibility = 'visible';
-                document.querySelector('.Error4').style.visibility = 'visible';
+            //adicional
+            if (NombreColor.textContent.trim() === textoNombreColor.trim()) {
+                document.querySelector('.Mensajeerror10').style.visibility = 'visible';
+                document.querySelector('.Error10').style.visibility = 'visible';
                 esValido = false;
             }
-            if (Etimologia.textContent.trim() === textoEtimologia.trim()) {
-                document.querySelector('.Mensajeerror5').style.visibility = 'visible';
-                document.querySelector('.Error5').style.visibility = 'visible';
+            if (Descripcioncolor.textContent.trim() === textoDescripcioncolor.trim()) {
+                document.querySelector('.Mensajeerror11').style.visibility = 'visible';
+                document.querySelector('.Error11').style.visibility = 'visible';
                 esValido = false;
             }
-            if (Genero.textContent.trim() === textoGenero.trim()) {
-                document.querySelector('.Mensajeerror6').style.visibility = 'visible';
-                document.querySelector('.Error6').style.visibility = 'visible';
-                esValido = false;
+            if (Anadirflortrue.style.visibility === 'visible') {
+                
+                if (Nombreflor.textContent.trim() === textoNombreflor.trim()) {
+                    document.querySelector('.Mensajeerror4').style.visibility = 'visible';
+                    document.querySelector('.Error4').style.visibility = 'visible';
+                    esValido = false;
+                }
+                if (Etimologia.textContent.trim() === textoEtimologia.trim()) {
+                    document.querySelector('.Mensajeerror5').style.visibility = 'visible';
+                    document.querySelector('.Error5').style.visibility = 'visible';
+                    esValido = false;
+                }
+                if (Genero.textContent.trim() === textoGenero.trim()) {
+                    document.querySelector('.Mensajeerror6').style.visibility = 'visible';
+                    document.querySelector('.Error6').style.visibility = 'visible';
+                    esValido = false;
+                }
+                if (Colores.textContent.trim() === textoColores.trim()) {
+                    document.querySelector('.Mensajeerror7').style.visibility = 'visible';
+                    document.querySelector('.Error7').style.visibility = 'visible';
+                    esValido = false;
+                }
+                if (Temperatura.textContent.trim() === textoTemperatura.trim()) {
+                    document.querySelector('.Mensajeerror8').style.visibility = 'visible';
+                    document.querySelector('.Error8').style.visibility = 'visible';
+                    esValido = false;
+                }
+            } else {
+                if (!id_flor_corte) { // Verifica el select
+                    document.querySelector('.Mensajeerror3').style.visibility = 'visible';
+                    document.querySelector('.Error3').style.visibility = 'visible';
+                    esValido = false;
+                }
             }
-            if (Colores.textContent.trim() === textoColores.trim()) {
-                document.querySelector('.Mensajeerror7').style.visibility = 'visible';
-                document.querySelector('.Error7').style.visibility = 'visible';
-                esValido = false;
-            }
-            if (Temperatura.textContent.trim() === textoTemperatura.trim()) {
-                document.querySelector('.Mensajeerror8').style.visibility = 'visible';
-                document.querySelector('.Error8').style.visibility = 'visible';
-                esValido = false;
+
+        }
+        
+        
+        if (Anadirflortrue.style.visibility === 'visible') { 
+            if (FieldAnadirColor.style.visibility === 'hidden') {
+                if (Nombrecat.textContent.trim() === textoNombrecat.trim()) {
+                    document.querySelector('.Mensajeerror1').style.visibility = 'visible';
+                    document.querySelector('.Error1').style.visibility = 'visible';
+                    esValido = false;
+                }
+                if (Codvbn.textContent.trim() === textoCodvbn.trim()) {
+                    document.querySelector('.Mensajeerror2').style.visibility = 'visible';
+                    document.querySelector('.Error2').style.visibility = 'visible';
+                    esValido = false;
+                }
+                if (!nombre_color) { // Verifica el select
+                    document.querySelector('.Mensajeerror9').style.visibility = 'visible';
+                    document.querySelector('.Error9').style.visibility = 'visible';
+                    esValido = false;
+                }
+
+                //adicionales
+                if (Nombreflor.textContent.trim() === textoNombreflor.trim()) {
+                    document.querySelector('.Mensajeerror4').style.visibility = 'visible';
+                    document.querySelector('.Error4').style.visibility = 'visible';
+                    esValido = false;
+                }
+                if (Etimologia.textContent.trim() === textoEtimologia.trim()) {
+                    document.querySelector('.Mensajeerror5').style.visibility = 'visible';
+                    document.querySelector('.Error5').style.visibility = 'visible';
+                    esValido = false;
+                }
+                if (Genero.textContent.trim() === textoGenero.trim()) {
+                    document.querySelector('.Mensajeerror6').style.visibility = 'visible';
+                    document.querySelector('.Error6').style.visibility = 'visible';
+                    esValido = false;
+                }
+                if (Colores.textContent.trim() === textoColores.trim()) {
+                    document.querySelector('.Mensajeerror7').style.visibility = 'visible';
+                    document.querySelector('.Error7').style.visibility = 'visible';
+                    esValido = false;
+                }
+                if (Temperatura.textContent.trim() === textoTemperatura.trim()) {
+                    document.querySelector('.Mensajeerror8').style.visibility = 'visible';
+                    document.querySelector('.Error8').style.visibility = 'visible';
+                    esValido = false;
+                }
             }
         }
     
@@ -302,103 +411,356 @@ document.addEventListener("DOMContentLoaded", function() {
                 Descripcion.textContent = '';
             }
     
-            if (Anadirflortrue.style.visibility === 'visible') {
-                // Añadir nueva flor y luego añadir el catálogo
-                const florData = {
-                    nombre_comun: Nombreflor.textContent.trim(),
-                    etimologia: Etimologia.textContent.trim(),
-                    genero_especie: Genero.textContent.trim(), 
-                    colores: Colores.textContent.trim(), 
-                    temperatura: parseFloat(Temperatura.textContent.trim())
-                };
-    
-                fetch('/Flores', {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json' 
-                    }, 
-                    body: JSON.stringify(florData) 
-                }) 
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al añadir la flor');
-                    }
-                    return response.json();
-                }) 
-                .then(flor => { 
-                    const catalogoData = { 
-                        id_productor: id_productorr, 
-                        nombre: Nombrecat.textContent.trim(), 
-                        cod_vbn: parseInt(Codvbn.textContent.trim(), 10), 
-                        id_flor_corte: flor.id_flor_corte, 
-                        descripcion: Descripcion.textContent.trim()
-                    }; 
-                    
-                    return fetch('/Catalogos', { 
-                        method: 'POST',
-                        headers: { 
-                            'Content-Type': 'application/json' 
-                        }, 
-                        body: JSON.stringify(catalogoData) 
-                    }); 
-                }) 
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al añadir el catálogo');
-                    }
-                    return response.json(); 
-                })
-                .then(result => { 
-                    alert('Catálogo añadido exitosamente'); 
-                    window.location.href = `catalogos.html?id_productor=${new URLSearchParams(window.location.search).get('id_productor')}`; 
-                }) 
-                .catch(error => { 
-                    console.error('Error:', error); 
-                    alert(error.message); 
-                }); 
-    
-            } else {
-                // Solo añadir el catálogo 
-                const catalogoData = { 
-                    id_productor: id_productorr, 
-                    nombre: Nombrecat.textContent.trim(), 
-                    cod_vbn: parseInt(Codvbn.textContent.trim(), 10), 
-                    id_flor_corte: elegirFlor.value, 
-                    descripcion: Descripcion.textContent.trim() 
-                }; 
-                console.log(catalogoData);
+            
 
+
+
+
+            
+            
+               
+            
                 
-                fetch('/Catalogos', { 
-                    method: 'POST', 
-                    headers: { 
-                        'Content-Type': 'application/json' 
-                    }, 
-                    body: JSON.stringify(catalogoData) 
-                }) 
-                
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al añadir el catálogo');
-                    }
-                    return response.json(); 
-                })
-                .then(result => { 
-                    alert('Catálogo añadido exitosamente'); 
-                    window.location.href = `catalogos.html?id_productor=${new URLSearchParams(window.location.search).get('id_productor')}`;
-                }) 
-                .catch(error => { 
-                    console.error('Error:', error); 
-                    alert(error.message); 
-                }); 
-            }
+                    if (Anadirflortrue.style.visibility === 'hidden') {
+                        if (FieldAnadirColor.style.visibility === 'hidden') {
+                            const catalogoData = {
+                                id_floristeria: id_floristeriaa,
+                                nombre: Nombrecat.textContent.trim(),
+                                cod_vbn: parseInt(Codvbn.textContent.trim(), 10),
+                                cod_hex: String(elegirColor.value),
+                                id_flor_corte: elegirFlor.value,
+                                descripcion: Descripcion.textContent.trim()
+                            };
+                            fetch('/CatalogosFloristerias', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(catalogoData)
+                            })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Error al añadir el catálogo');
+                                }
+                                return response.json();
+                            })
+                            .then(result => {
+                                alert('Catálogo añadido exitosamente');
+                                window.location.href = `catalogosfloristerias.html?id_floristeria=${id_floristeriaa}`;
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert(error.message);
+                            });
+                        } else {
+                            const colorData = {
+                                cod_hex: String(elegirColor.value),
+                                nombre: document.getElementById('NombreColor').textContent.trim(),
+                                descripcion: descripcioncolor.textContent.trim()
+                            };
+                    
+                            fetch('/Colores', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(colorData)
+                            })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Error al añadir el color');
+                                }
+                                return response.json();
+                            })
+                            .then(color => {
+                                if (Anadirflortrue.style.visibility === 'visible') {
+                                    const florData = {
+                                        nombre_comun: Nombreflor.textContent.trim(),
+                                        etimologia: Etimologia.textContent.trim(),
+                                        genero_especie: Genero.textContent.trim(),
+                                        colores: Colores.textContent.trim(),
+                                        temperatura: parseFloat(Temperatura.textContent.trim())
+                                    };
+                            
+                                    fetch('/Flores', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(florData)
+                                    })
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Error al añadir la flor');
+                                        }
+                                        return response.json();
+                                    })
+                                    .then(flor => {
+                                        const catalogoData = {
+                                            id_floristeria: id_floristeriaa,
+                                            nombre: Nombrecat.textContent.trim(),
+                                            cod_vbn: parseInt(Codvbn.textContent.trim(), 10),
+                                            cod_hex: String(color.cod_hex),
+                                            id_flor_corte: flor.id_flor_corte,
+                                            descripcion: Descripcion.textContent.trim()
+                                        };
+                                        fetch('/CatalogosFloristerias', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify(catalogoData)
+                                        })
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                throw new Error('Error al añadir el catálogo');
+                                            }
+                                            return response.json();
+                                        })
+                                        .then(result => {
+                                            alert('Catálogo añadido exitosamente');
+                                            window.location.href = `catalogosfloristerias.html?id_floristeria=${id_floristeriaa}`;
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                            alert(error.message);
+                                        });
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        alert(error.message);
+                                    });
+                                } else {
+                                    const catalogoData = {
+                                        id_floristeria: id_floristeriaa,
+                                        nombre: Nombrecat.textContent.trim(),
+                                        cod_vbn: parseInt(Codvbn.textContent.trim(), 10),
+                                        cod_hex: String(color.cod_hex),
+                                        id_flor_corte: elegirFlor.value,
+                                        descripcion: Descripcion.textContent.trim()
+                                    };
+                                    fetch('/CatalogosFloristerias', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(catalogoData)
+                                    })
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Error al añadir el catálogo');
+                                        }
+                                        return response.json();
+                                    })
+                                    .then(result => {
+                                        alert('Catálogo añadido exitosamente');
+                                        window.location.href = `catalogosfloristerias.html?id_floristeria=${id_floristeriaa}`;
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        alert(error.message);
+                                    });
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert(error.message);
+                            });
+                        }
+                    } else {
+                        if (FieldAnadirColor.style.visibility === 'hidden') {
+                            const florData = {
+                                nombre_comun: Nombreflor.textContent.trim(),
+                                etimologia: Etimologia.textContent.trim(),
+                                genero_especie: Genero.textContent.trim(),
+                                colores: Colores.textContent.trim(),
+                                temperatura: parseFloat(Temperatura.textContent.trim())
+                            };
+                    
+                            fetch('/Flores', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(florData)
+                            })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Error al añadir la flor');
+                                }
+                                return response.json();
+                            })
+                            .then(flor => {
+                                const catalogoData = {
+                                    id_floristeria: id_floristeriaa,
+                                    nombre: Nombrecat.textContent.trim(),
+                                    cod_vbn: parseInt(Codvbn.textContent.trim(), 10),
+                                    cod_hex: String(elegirColor.value),
+                                    id_flor_corte: flor.id_flor_corte,
+                                    descripcion: Descripcion.textContent.trim()
+                                };
+                                fetch('/CatalogosFloristerias', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(catalogoData)
+                                })
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Error al añadir el catálogo');
+                                    }
+                                    return response.json();
+                                })
+                                .then(result => {
+                                    alert('Catálogo añadido exitosamente');
+                                    window.location.href = `catalogosfloristerias.html?id_floristeria=${id_floristeriaa}`;
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    alert(error.message);
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert(error.message);
+                            });
+                        } else {
+                            const colorData = {
+                                cod_hex: String(elegirColor.value),
+                                nombre: document.getElementById('NombreColor').textContent.trim(),
+                                descripcion: descripcioncolor.textContent.trim()
+                            };
+                    
+                            fetch('/Colores', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(colorData)
+                            })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Error al añadir el color');
+                                }
+                                return response.json();
+                            })
+                            .then(color => {
+                                if (Anadirflortrue.style.visibility === 'visible') {
+                                    const florData = {
+                                        nombre_comun: Nombreflor.textContent.trim(),
+                                        etimologia: Etimologia.textContent.trim(),
+                                        genero_especie: Genero.textContent.trim(),
+                                        colores: Colores.textContent.trim(),
+                                        temperatura: parseFloat(Temperatura.textContent.trim())
+                                    };
+                            
+                                    fetch('/Flores', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(florData)
+                                    })
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Error al añadir la flor');
+                                        }
+                                        return response.json();
+                                    })
+                                    .then(flor => {
+                                        const catalogoData = {
+                                            id_floristeria: id_floristeriaa,
+                                            nombre: Nombrecat.textContent.trim(),
+                                            cod_vbn: parseInt(Codvbn.textContent.trim(), 10),
+                                            cod_hex: String(color.cod_hex),
+                                            id_flor_corte: flor.id_flor_corte,
+                                            descripcion: Descripcion.textContent.trim()
+                                        };
+                                        fetch('/CatalogosFloristerias', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify(catalogoData)
+                                        })
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                throw new Error('Error al añadir el catálogo');
+                                            }
+                                            return response.json();
+                                        })
+                                        .then(result => {
+                                            alert('Catálogo añadido exitosamente');
+                                            window.location.href = `catalogosfloristerias.html?id_floristeria=${id_floristeriaa}`;
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                            alert(error.message);
+                                        });
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        alert(error.message);
+                                    });
+                                } else {
+                                    const catalogoData = {
+                                        id_floristeria: id_floristeriaa,
+                                        nombre: Nombrecat.textContent.trim(),
+                                        cod_vbn: parseInt(Codvbn.textContent.trim(), 10),
+                                        cod_hex: String(color.cod_hex),
+                                        id_flor_corte: elegirFlor.value,
+                                        descripcion: Descripcion.textContent.trim()
+                                    };
+                                    fetch('/CatalogosFloristerias', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(catalogoData)
+                                    })
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Error al añadir el catálogo');
+                                        }
+                                        return response.json();
+                                    })
+                                    .then(result => {
+                                        alert('Catálogo añadido exitosamente');
+                                        window.location.href = `catalogosfloristerias.html?id_floristeria=${id_floristeriaa}`;
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        alert(error.message);
+                                    });
+                                
+                        }
+                    });
+
+
+
+
+
+
+                }
+
+
+
+
+
+
+
             Descripcion.textContent == textoDescripcion.trim();
         }
-    });
-    
-    
 
+    }
 
+    
+});
+
+} else {
+    console.error('Elemento con ID "Botonanadir" no encontrado');
+}
 
 
 });

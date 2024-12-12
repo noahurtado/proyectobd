@@ -132,11 +132,16 @@
 }
 
 
+
+
+
+
+
 .Titulo {
     width: 665px;
     height: 95px;
     left: 464px;
-    top: 35px;
+    top: 11px;
     position: absolute;
     color: #45464E;
     font-size: 48px;
@@ -147,9 +152,9 @@
 
 .Cuadroanadircat {
     width: 720px;
-    height: 760px;
+    height: 796px;
     left: 462px;
-    top: 113px;
+    top: 84px;
     position: absolute;
     background: white;
     border-radius: 15px;
@@ -159,7 +164,7 @@
     width: 586px;
     height: 109px;
     left: 507px;
-    top: 176px;
+    top: 111px;
     position: absolute;
 }
 
@@ -213,7 +218,7 @@
     width: 267px;
     height: 111px;
     left: 507px;
-    top: 302px;
+    top: 220px;
     position: absolute;
 }
 
@@ -267,7 +272,7 @@
     width: 428px;
     height: 109px;
     left: 507px;
-    top: 410px;
+    top: 332px;
     position: absolute;
 }
 
@@ -335,7 +340,7 @@ select {
     width: 504px;
     height: 109px;
     left: 513px;
-    top: 522px;
+    top: 529px;
     position: absolute;
 }
 
@@ -397,7 +402,7 @@ select {
     pointer-events: none;
 }
 
-.Colorpicker{
+.colorpicker{
     width: 59px; 
     height: 59px; 
     left: 0px; 
@@ -411,15 +416,15 @@ select {
 
 .Fielddescripcion {
     width: 545px;
-    height: 105px;
+    height: 66px;
     left: 507px;
-    top: 631px;
+    top: 445px;
     position: absolute;
 }
 
 .Fondofield4 {
     width: 545px;
-    height: 105px;
+    height: 66px;
     left: 0px;
     top: 0px;
     position: absolute;
@@ -431,7 +436,7 @@ select {
     width: 350px;
     height: 35px;
     left: 31px;
-    top: 18px;
+    top: 15px;
     position: absolute;
     color: #ABAFB1;
     font-size: 24px;
@@ -444,7 +449,7 @@ select {
     width: 188px;
     height: 35px;
     left: 513px;
-    top: 748px;
+    top: 750px;
     position: absolute;
     color: #ABAFB1;
     font-size: 24px;
@@ -489,7 +494,7 @@ select {
     width: 188px;
     height: 35px;
     left: 775px;
-    top: 748px;
+    top: 750px;
     position: absolute;
     color: #ABAFB1;
     font-size: 24px;
@@ -571,17 +576,22 @@ select {
 }
 
 
+
+
+
+
+
 .Anadirflortrue {
-    width: 666px;
-    height: 760px;
+    width: 720px;
+    height: 796px;
     left: 1135px;
-    top: 113px;
+    top: 84px;
     position: absolute;
 }
 
 .Fondocuadroflor {
     width: 666px;
-    height: 760px;
+    height: 796px;
     left: 0px;
     top: 0px;
     position: absolute;
@@ -876,7 +886,7 @@ select {
     width: 428px;
     height: 109px;
     left: 507px;
-    top: 410px;
+    top: 332px;
     position: absolute;
 }
 
@@ -917,7 +927,7 @@ select {
     width: 504px; 
     height: 109px; 
     left: 513px; 
-    top: 522px; 
+    top: 529px; 
     position: absolute;
     visibility: hidden;
 }
@@ -1011,6 +1021,67 @@ select {
     transform: rotate(180deg); 
     transform-origin: 0 0;
 }
+
+
+.FieldDescripcioncolor {
+    width: 589px;
+    height: 110px;
+    left: 507px;
+    top: 641px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.Fondofield12 {
+    width: 545px;
+    height: 66px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F4F5FA;
+    border-radius: 10px;
+}
+
+#Descripcioncolor {
+    width: 350px;
+    height: 35px;
+    left: 31px;
+    top: 15px;
+    position: absolute;
+    color: #ABAFB1;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Mensajeerror11{
+    width: 350px; 
+    height: 35px; 
+    left: 0px; 
+    top: 75px; 
+    position: absolute; 
+    color: #EF7D86; 
+    font-size: 16px; 
+    font-family: Poppins; 
+    font-weight: 400; 
+    word-wrap: break-word;
+    visibility: hidden;
+}
+
+.Error11{
+    width: 31px; 
+    height: 31px; 
+    left: 558px; 
+    top: 18px; 
+    position: absolute;
+    visibility: hidden;
+}
+
+
+
+
+
 
 
 
