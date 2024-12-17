@@ -200,6 +200,26 @@ client.connect(err => {
       res.status(500).send('Error en la inserción de la flor');
     }
   });
+
+  // Endpoint para agregar un nuevo color
+  app.post('/Colores', async (req, res) => {
+    const { cod_hex, nombre, descripcion } = req.body;
+    if (!cod_hex || !nombre || !descripcion) {
+      return res.status(400).send('Todos los campos son obligatorios');
+    }
+    try {
+      const result = await client.query(`
+        INSERT INTO colores_flores (cod_hex, nombre, descripcion)
+        VALUES ($1, $2, $3)
+        RETURNING cod_hex
+      `, [cod_hex, nombre, descripcion]);
+      console.log(result.rows[0]); // Verifica el nuevo registro
+      res.status(201).json(result.rows[0]);
+    } catch (err) {
+      console.error('Error agregando color', err.stack);
+      res.status(500).send('Error en la inserción del color');
+    }
+  });
   
   // Endpoint para agregar un nuevo catálogo
   app.post('/Catalogos', async (req, res) => {
@@ -213,6 +233,27 @@ client.connect(err => {
         VALUES ($1, $2, $3, $4, $5)
         RETURNING cod_vbn
       `, [id_productor, cod_vbn, nombre, id_flor_corte, descripcion]);
+      console.log(result.rows[0]); // Verifica el nuevo registro
+      res.status(201).json(result.rows[0]);
+    } catch (err) {
+      console.error('Error agregando catálogo', err.stack);
+      res.status(500).send('Error en la inserción del catálogo');
+    }
+  });
+
+
+  // Endpoint para agregar un nuevo catálogo
+  app.post('/CatalogosFloristerias', async (req, res) => {
+    const { id_floristeria, nombre, cod_vbn, cod_hex, id_flor_corte, descripcion } = req.body;
+    if (!id_floristeria || !nombre || !cod_vbn || !id_flor_corte || !cod_hex) {
+      return res.status(400).send('Todos los campos son obligatorios');
+    }
+    try {
+      const result = await client.query(`
+        INSERT INTO catalogos_floristerias (id_floristeria, cod_vbn, nombre, cod_hex, id_flor_corte, descripcion)
+        VALUES ($1, $2, $3, $4, $5, $6)
+        RETURNING cod_vbn
+      `, [id_floristeria, cod_vbn, nombre, cod_hex, id_flor_corte, descripcion]);
       console.log(result.rows[0]); // Verifica el nuevo registro
       res.status(201).json(result.rows[0]);
     } catch (err) {
