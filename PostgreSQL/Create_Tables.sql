@@ -104,7 +104,7 @@ CREATE TABLE contratos(
 	fecha_cierre_cancelacion DATE,
 	id_productor_renovado numeric(4), -- Referencia al contrato renovado (opcional)
 	id_subastadora_renovado numeric(4), -- Referencia al contrato renovado (opcional)
-    id_contrato_renovado numeric(4), -- Referencia al contrato renovado (opcional)
+    id_contrato_renovado numeric(6), -- Referencia al contrato renovado (opcional)
 	
     CONSTRAINT PK_contrato PRIMARY KEY (id_productor, id_subastadora, id_contrato),
     CONSTRAINT FK1_productor FOREIGN KEY (id_productor) REFERENCES productores (id_productor),
@@ -347,14 +347,17 @@ CREATE TABLE detalles_facturas_ventas(
 	id_floristeria_cat numeric(4),
     cod_vbn_cat numeric(6),
 	
-    valor_cantidad NUMERIC(9,2),
-    valor_precio NUMERIC(9,2),
-    promedio NUMERIC(9,2),
+    valor_calidad NUMERIC(2,1),
+    valor_precio NUMERIC(2,1),
+    promedio NUMERIC(2,1),
 	
     CONSTRAINT PK_detalle_factura_venta PRIMARY KEY(id_floristeria, id_factura_venta, id_detalle_factura_venta),
     CONSTRAINT FK1_factura_venta FOREIGN KEY(id_floristeria, id_factura_venta) REFERENCES facturas_ventas(id_floristeria, id_factura_venta),
     CONSTRAINT FK2_detalle_bouquet FOREIGN KEY(id_floristeria_bouquet, cod_vbn_bouquet, id_detalle_bouquet) REFERENCES detalles_bouquets(id_floristeria, cod_vbn, id_detalle_bouquet),
-    CONSTRAINT FK3_catalogo_floristeria FOREIGN KEY(id_floristeria_cat, cod_vbn_cat) REFERENCES catalogos_floristerias(id_floristeria, cod_vbn)
+    CONSTRAINT FK3_catalogo_floristeria FOREIGN KEY(id_floristeria_cat, cod_vbn_cat) REFERENCES catalogos_floristerias(id_floristeria, cod_vbn),
+	CONSTRAINT CHK_Valor_calidad CHECK ((valor_calidad>= 0) AND (valor_calidad <=5)),
+	CONSTRAINT CHK_Valor_precio CHECK ((valor_precio>= 0) AND (valor_precio <=5)),
+	CONSTRAINT CHK_Promedio CHECK ((promedio>= 0) AND (promedio <=5))
 );
 
 -- TELEFONO
